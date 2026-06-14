@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - SiteScop V4</title>
 
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+header{
+    background:#18253d;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+h2{
+    margin-top:0;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+button{
+    background:#2d6cdf;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Settings</h1>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">← Dashboard</a>
+
+<div class="card">
+
+<h2>Inspector Details</h2>
+
+<label>Inspector Name</label>
+<input id="inspectorName">
+
+<label>Inspector Mobile</label>
+<input id="inspectorMobile">
+
+<label>Inspector Email</label>
+<input id="inspectorEmail">
+
+<label>Inspector Signature Image URL</label>
+<input id="inspectorSignature">
+
+</div>
+
+<div class="card">
+
+<h2>Company Details</h2>
+
+<label>Company Name</label>
+<input id="companyName">
+
+<label>Company Mobile</label>
+<input id="companyMobile">
+
+<label>Company Email</label>
+<input id="companyEmail">
+
+<label>Company Address</label>
+<input id="companyAddress">
+
+<label>Company Logo Image URL</label>
+<input id="companyLogo">
+
+</div>
+
+<button onclick="saveSettings()">
+Save Settings
+</button>
+
+</div>
+
+<script>
+
+loadSettings();
+
+function saveSettings(){
+
+const settings = {
+
+inspectorName:
+document.getElementById("inspectorName").value,
+
+inspectorMobile:
+document.getElementById("inspectorMobile").value,
+
+inspectorEmail:
+document.getElementById("inspectorEmail").value,
+
+inspectorSignature:
+document.getElementById("inspectorSignature").value,
+
+companyName:
+document.getElementById("companyName").value,
+
+companyMobile:
+document.getElementById("companyMobile").value,
+
+companyEmail:
+document.getElementById("companyEmail").value,
+
+companyAddress:
+document.getElementById("companyAddress").value,
+
+companyLogo:
+document.getElementById("companyLogo").value
+
+};
+
+localStorage.setItem(
+"siteScopSettings",
+JSON.stringify(settings)
+);
+
+alert("Settings Saved");
+
+}
+
+function loadSettings(){
+
+const settings =
+JSON.parse(
+localStorage.getItem("siteScopSettings")
+);
+
+if(!settings) return;
+
+document.getElementById("inspectorName").value =
+settings.inspectorName || "";
+
+document.getElementById("inspectorMobile").value =
+settings.inspectorMobile || "";
+
+document.getElementById("inspectorEmail").value =
+settings.inspectorEmail || "";
+
+document.getElementById("inspectorSignature").value =
+settings.inspectorSignature || "";
+
+document.getElementById("companyName").value =
+settings.companyName || "";
+
+document.getElementById("companyMobile").value =
+settings.companyMobile || "";
+
+document.getElementById("companyEmail").value =
+settings.companyEmail || "";
+
+document.getElementById("companyAddress").value =
+settings.companyAddress || "";
+
+document.getElementById("companyLogo").value =
+settings.companyLogo || "";
+
+}
+
+</script>
+
+</body>
+</html>
