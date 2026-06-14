@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiteScop Inspection Platform V4</title>
 
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+    background:#18253d;
+    color:white;
+    padding:20px;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#f39c12;
+}
+
+.topbar{
+    background:#081327;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    padding:15px 20px;
+}
+
+.topbar a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.container{
+    padding:25px;
+}
+
+.welcome{
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.welcome h1{
+    margin-bottom:10px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:40px 20px;
+    text-align:center;
+    text-decoration:none;
+    color:#222;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.card-title{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.admin-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#18253d;
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:15px 25px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        Site<span>Scop</span> Inspections
+    </div>
+</header>
+
+<nav class="topbar">
+    <a href="index.html">Dashboard</a>
+    <a href="new-inspection.html">New Job</a>
+    <a href="in-progress.html">In Progress</a>
+    <a href="recycle-bin.html">Recycle Bin</a>
+    <a href="settings.html">Settings</a>
+</nav>
+
+<div class="container">
+
+    <div class="welcome">
+        <h1>Welcome to SiteScop Inspection Platform V4</h1>
+        <p>
+            Professional Building, Pest & Timber Inspection Management System.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <a class="card" href="new-inspection.html">
+            <div class="card-icon">📝</div>
+            <div class="card-title">Create New Job</div>
+        </a>
+
+        <a class="card" href="in-progress.html">
+            <div class="card-icon">📂</div>
+            <div class="card-title">In Progress Jobs</div>
+        </a>
+
+        <a class="card" href="completed-jobs.html">
+            <div class="card-icon">📋</div>
+            <div class="card-title">All Jobs</div>
+        </a>
+
+        <a class="card" href="recycle-bin.html">
+            <div class="card-icon">🗑️</div>
+            <div class="card-title">Recycle Bin</div>
+        </a>
+
+        <a class="card" href="settings.html">
+            <div class="card-icon">⚙️</div>
+            <div class="card-title">Settings</div>
+        </a>
+
+        <a class="card" href="client-agreement.html">
+            <div class="card-icon">✍️</div>
+            <div class="card-title">Client Agreement</div>
+        </a>
+
+    </div>
+
+</div>
+
+<button class="admin-btn" onclick="adminLogin()">
+🔒 Admin
+</button>
+
+<footer>
+    © SiteScop Inspections V4
+</footer>
+
+<script>
+
+function adminLogin(){
+
+    let password = prompt("Enter Admin Password");
+
+    if(password === "admin123"){
+        alert("Admin Access Granted");
+    }
+    else if(password !== null){
+        alert("Incorrect Password");
+    }
+
+}
+
+</script>
+
+</body>
+</html>
