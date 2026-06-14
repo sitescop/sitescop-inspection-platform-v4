@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Completed Jobs - SiteScop V4</title>
 
+<script src="database.js"></script>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+header{
+    background:#18253d;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#18253d;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+button{
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.openBtn{
+    background:#2d6cdf;
+    color:white;
+}
+
+.pdfBtn{
+    background:#28a745;
+    color:white;
+}
+
+.emailBtn{
+    background:#f39c12;
+    color:white;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Completed Jobs</h1>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">
+← Dashboard
+</a>
+
+<div class="card">
+
+<input
+type="text"
+id="search"
+placeholder="Search Job Number or Client Name"
+onkeyup="loadCompletedJobs()"
+>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Job Number</th>
+<th>Client Name</th>
+<th>Date</th>
+<th>Open</th>
+<th>PDF</th>
+<th>Email</th>
+</tr>
+
+</thead>
+
+<tbody id="completedTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+loadCompletedJobs();
+
+function loadCompletedJobs(){
+
+const jobs = getCompletedJobs();
+
+const search =
+document.getElementById("search")
+.value
+.toLowerCase();
+
+let html = "";
+
+jobs.forEach(job => {
+
+const match =
+job.jobNumber.toLowerCase().includes(search)
+||
+job.clientName.toLowerCase().includes(search);
+
+if(!match) return;
+
+html += `
+
+<tr>
+
+<td>${job.jobNumber}</td>
+
+<td>${job.clientName}</td>
+
+<td>${job.inspectionDate}</td>
+
+<td>
+<button
+class="openBtn"
+onclick="openJob(${job.id})">
+Open
+</button>
+</td>
+
+<td>
+<button
+class="pdfBtn"
+onclick="downloadPDF(${job.id})">
+PDF
+</button>
+</td>
+
+<td>
+<button
+class="emailBtn"
+onclick="emailReport(${job.id})">
+Email
+</button>
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("completedTable").innerHTML =
+html;
+
+}
+
+function openJob(id){
+
+const jobs = getCompletedJobs();
+
+const job =
+jobs.find(j => j.id === id);
+
+localStorage.setItem(
+"currentJob",
+JSON.stringify(job)
+);
+
+alert(
+"Completed job opened."
+);
+
+}
+
+function downloadPDF(id){
+
+alert(
+"PDF generation will be connected later."
+);
+
+}
+
+function emailReport(id){
+
+alert(
+"Email feature will be connected later."
+);
+
+}
+
+</script>
+
+</body>
+</html>
