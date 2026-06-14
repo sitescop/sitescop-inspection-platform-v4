@@ -1,1 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Inspection - SiteScop V4</title>
 
+<script src="database.js"></script>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+header{
+    background:#18253d;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+button{
+    background:#2d6cdf;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.back{
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Create New Inspection</h1>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">← Dashboard</a>
+
+<div class="card">
+
+<h2>Job Information</h2>
+
+<label>Job Number</label>
+<input id="jobNumber" readonly>
+
+<label>Inspection Date</label>
+<input type="date" id="inspectionDate">
+
+<label>Inspection Time</label>
+<input type="time" id="inspectionTime">
+
+</div>
+
+<div class="card">
+
+<h2>Client Details</h2>
+
+<label>Client Name</label>
+<input id="clientName">
+
+<label>Client Mobile</label>
+<input id="clientMobile">
+
+<label>Client Email</label>
+<input id="clientEmail">
+
+</div>
+
+<div class="card">
+
+<h2>Agent Details</h2>
+
+<label>Agent Name</label>
+<input id="agentName">
+
+<label>Agent Mobile</label>
+<input id="agentMobile">
+
+</div>
+
+<div class="card">
+
+<h2>Property Details</h2>
+
+<label>Property Address</label>
+<input id="propertyAddress">
+
+<label>Inspection Type</label>
+
+<select id="inspectionType">
+
+<option value="Building">
+Building Inspection
+</option>
+
+<option value="Pest">
+Pest & Timber Inspection
+</option>
+
+<option value="Combined">
+Combined Inspection
+</option>
+
+</select>
+
+</div>
+
+<button onclick="createJob()">
+Create Job
+</button>
+
+</div>
+
+<script>
+
+document.getElementById("jobNumber").value =
+generateJobNumber();
+
+function createJob(){
+
+const job = {
+
+id: Date.now(),
+
+jobNumber:
+document.getElementById("jobNumber").value,
+
+inspectionDate:
+document.getElementById("inspectionDate").value,
+
+inspectionTime:
+document.getElementById("inspectionTime").value,
+
+clientName:
+document.getElementById("clientName").value,
+
+clientMobile:
+document.getElementById("clientMobile").value,
+
+clientEmail:
+document.getElementById("clientEmail").value,
+
+agentName:
+document.getElementById("agentName").value,
+
+agentMobile:
+document.getElementById("agentMobile").value,
+
+propertyAddress:
+document.getElementById("propertyAddress").value,
+
+inspectionType:
+document.getElementById("inspectionType").value,
+
+status:"In Progress"
+
+};
+
+addJob(job);
+
+localStorage.setItem(
+"currentJob",
+JSON.stringify(job)
+);
+
+if(job.inspectionType === "Building"){
+
+location.href =
+"building-inspection.html";
+
+}
+
+else if(job.inspectionType === "Pest"){
+
+location.href =
+"pest-timber-inspection.html";
+
+}
+
+else{
+
+location.href =
+"combined-inspection.html";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
