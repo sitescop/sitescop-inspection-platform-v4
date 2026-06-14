@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recycle Bin - SiteScop V4</title>
 
+<script src="database.js"></script>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+header{
+    background:#18253d;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#18253d;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+button{
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.restoreBtn{
+    background:#28a745;
+    color:white;
+}
+
+.deleteBtn{
+    background:#d9534f;
+    color:white;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Recycle Bin</h1>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">
+← Dashboard
+</a>
+
+<div class="card">
+
+<table>
+
+<thead>
+<tr>
+<th>Job Number</th>
+<th>Client Name</th>
+<th>Inspection Date</th>
+<th>Restore</th>
+<th>Delete Forever</th>
+</tr>
+</thead>
+
+<tbody id="recycleTable">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+loadRecycleBin();
+
+function loadRecycleBin(){
+
+const jobs = getDeletedJobs();
+
+let html = "";
+
+jobs.forEach(job => {
+
+html += `
+
+<tr>
+
+<td>${job.jobNumber}</td>
+
+<td>${job.clientName}</td>
+
+<td>${job.inspectionDate}</td>
+
+<td>
+<button
+class="restoreBtn"
+onclick="restore(${job.id})">
+Restore
+</button>
+</td>
+
+<td>
+<button
+class="deleteBtn"
+onclick="permanentDelete(${job.id})">
+Delete
+</button>
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("recycleTable").innerHTML =
+html;
+
+}
+
+function restore(id){
+
+if(!confirm("Restore this job?")) return;
+
+restoreJob(id);
+
+loadRecycleBin();
+
+alert("Job restored");
+
+}
+
+function permanentDelete(id){
+
+const confirmDelete =
+prompt(
+'Type DELETE to permanently remove this job'
+);
+
+if(confirmDelete !== "DELETE"){
+
+alert("Delete cancelled");
+
+return;
+
+}
+
+const deletedJobs =
+getDeletedJobs();
+
+const updated =
+deletedJobs.filter(j => j.id !== id);
+
+saveDeletedJobs(updated);
+
+loadRecycleBin();
+
+alert("Job permanently deleted");
+
+}
+
+</script>
+
+</body>
+</html>
