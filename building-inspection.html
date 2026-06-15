@@ -1180,11 +1180,15 @@ document.addEventListener("click",(e)=>{
 
     if(e.target.classList.contains("delete-btn")){
 
-        e.target.parentElement.remove();
-
-        saveCustomItems();
-
+    if(!confirm("Delete this item?")){
+        return;
     }
+
+    e.target.parentElement.remove();
+
+    saveCustomItems();
+
+}
 
     if(e.target.classList.contains("edit-btn")){
 
