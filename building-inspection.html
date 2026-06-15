@@ -1178,17 +1178,13 @@ function addCustomCheckbox(group){
 
 document.querySelectorAll(".add-item-btn").forEach(btn=>{
 
-    btn.addEventListener("click",()=>{
+   btn.addEventListener("click",()=>{
 
-       <button
-type="button"
-class="add-item-btn">
-+ Add Item
-</button>
+    const group = btn.previousElementSibling;
 
-        addCustomCheckbox(group);
+    addCustomCheckbox(group);
 
-    });
+});
 
 });
 
