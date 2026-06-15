@@ -863,30 +863,13 @@ LAUNDRY
 </div>
 
 </div>
-
-</div>
-<div class="sticky-bar">
-
-<button>🏠 Home</button>
-
-<button id="saveBtn">
-💾 Save
-</button>
-
-<button>
-✅ Complete
-</button>
-
-<button>
-📄 PDF
-</button>
-
-</div>
-
 <script>
 
-document
-.querySelectorAll(".accordion-header")
+// =========================
+// ACCORDIONS
+// =========================
+
+document.querySelectorAll(".accordion-header")
 .forEach(header=>{
 
     header.addEventListener("click",()=>{
@@ -898,32 +881,217 @@ document
 
 });
 
-const allInputs=document.querySelectorAll("input,select,textarea");
+// =========================
+// CUSTOM ITEMS STORAGE
+// =========================
 
-allInputs.forEach(el=>{
+function saveCustomItems(){
 
-    el.addEventListener("change",saveData);
+    const data=[];
+
+    document.querySelectorAll(".checkbox-group")
+    .forEach((group,index)=>{
+
+        const items=[];
+
+        group.querySelectorAll(".custom-item")
+        .forEach(item=>{
+
+            items.push({
+                text:item.querySelector("span").textContent,
+                checked:item.querySelector("input").checked
+            });
+
+        });
+
+        data[index]=items;
+
+    });
+
+    localStorage.setItem(
+        "sitescopCustomItems",
+        JSON.stringify(data)
+    );
+
+}
+
+function loadCustomItems(){
+
+    const data=JSON.parse(
+        localStorage.getItem(
+            "sitescopCustomItems"
+        )
+    );
+
+    if(!data) return;
+
+    document.querySelectorAll(".checkbox-group")
+    .forEach((group,index)=>{
+
+        if(!data[index]) return;
+
+        data[index].forEach(item=>{
+
+            createCustomItem(
+                group,
+                item.text,
+                item.checked
+            );
+
+        });
+
+    });
+
+}
+
+// =========================
+// CREATE CUSTOM ITEM
+// =========================
+
+function createCustomItem(
+    group,
+    text,
+    checked=false
+){
+
+    const label=
+    document.createElement("label");
+
+    label.className="custom-item";
+
+    label.innerHTML=`
+        <input type="checkbox"
+        ${checked ? "checked" : ""}>
+
+        <span>${text}</span>
+
+        <button
+        type="button"
+        class="edit-btn">✏️</button>
+
+        <button
+        type="button"
+        class="delete-btn">✖</button>
+    `;
+
+    group.appendChild(label);
+
+    label.querySelector("input")
+    .addEventListener(
+        "change",
+        saveCustomItems
+    );
+
+    label.querySelector(".edit-btn")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            const span=
+            label.querySelector("span");
+
+            const newText=
+            prompt(
+                "Edit Item",
+                span.textContent
+            );
+
+            if(newText){
+
+                span.textContent=
+                newText;
+
+                saveCustomItems();
+
+            }
+
+        }
+    );
+
+    label.querySelector(".delete-btn")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            if(
+                confirm(
+                "Delete this item?"
+                )
+            ){
+
+                label.remove();
+
+                saveCustomItems();
+
+            }
+
+        }
+    );
+
+}
+
+// =========================
+// ADD BUTTONS
+// =========================
+
+document.querySelectorAll(".add-item-btn")
+.forEach(btn=>{
+
+    btn.addEventListener(
+        "click",
+        ()=>{
+
+            const group=
+            btn.previousElementSibling;
+
+            const text=
+            prompt("Enter new item");
+
+            if(!text) return;
+
+            createCustomItem(
+                group,
+                text
+            );
+
+            saveCustomItems();
+
+        }
+    );
 
 });
+
+// =========================
+// NORMAL FORM SAVE
+// =========================
 
 function saveData(){
 
     const data={};
 
-    allInputs.forEach((el,index)=>{
+    document.querySelectorAll(
+        "input,select,textarea"
+    )
+    .forEach((el,index)=>{
 
-    if(el.type==="checkbox"){
-        data[index]=el.checked;
-    }else{
-        data[index]=el.value;
-    }
+        if(el.type==="checkbox"){
 
-});
+            data[index]=el.checked;
+
+        }else{
+
+            data[index]=el.value;
+
+        }
+
+    });
 
     localStorage.setItem(
         "sitescopBuildingDraft",
         JSON.stringify(data)
     );
+
+    saveCustomItems();
 
 }
 
@@ -937,100 +1105,130 @@ function loadData(){
 
     if(!data) return;
 
-    allInputs.forEach((el,index)=>{
+    document.querySelectorAll(
+        "input,select,textarea"
+    )
+    .forEach((el,index)=>{
 
-       if(data[index]!==undefined){
+        if(data[index]===undefined)
+        return;
 
-    if(el.type==="checkbox"){
-        el.checked=data[index];
-    }else{
-        el.value=data[index];
-    }
+        if(el.type==="checkbox"){
 
-}
+            el.checked=data[index];
+
+        }else{
+
+            el.value=data[index];
+
+        }
+
     });
 
 }
 
-document
-.getElementById("saveBtn")
-.addEventListener("click",()=>{
+// =========================
+// PROGRESS BAR
+// =========================
 
-    saveData();
-
-    alert("Inspection Saved");
-
-});
-
-document.querySelectorAll("input, select, textarea").forEach(el=>{
-    el.addEventListener("change",saveData);
-    el.addEventListener("keyup",saveData);
-});
-
-loadData();
-// ===== STEP 3 FRAMEWORK =====
-
-// Progress Bar
 function updateProgress(){
 
-    const all=document.querySelectorAll("input,select,textarea");
-    let completed=0;
+    const all=
+    document.querySelectorAll(
+        "input,select,textarea"
+    );
+
+    let complete=0;
 
     all.forEach(el=>{
 
-        if(el.type==="checkbox"){
-            if(el.checked) completed++;
+        if(
+            el.type==="checkbox"
+            &&
+            el.checked
+        ){
+            complete++;
         }
-        else{
-            if(el.value.trim()!=="") completed++;
+
+        if(
+            el.type!=="checkbox"
+            &&
+            el.value.trim()!==""
+        ){
+            complete++;
         }
 
     });
 
-    const percent=Math.round(
-        (completed/all.length)*100
+    const percent=
+    Math.round(
+        (complete/all.length)*100
     );
 
-    const bar=document.getElementById("progressFill");
+    const bar=
+    document.getElementById(
+        "progressFill"
+    );
 
     if(bar){
-        bar.style.width=percent+"%";
+
+        bar.style.width=
+        percent+"%";
+
     }
 
 }
 
-// Section Completion
+// =========================
+// SECTION STATUS
+// =========================
+
 function updateSectionStatus(){
 
-    document.querySelectorAll(".accordion").forEach(section=>{
+    document.querySelectorAll(
+        ".accordion"
+    )
+    .forEach(section=>{
 
-        const inputs=section.querySelectorAll(
+        const header=
+        section.querySelector(
+            ".accordion-header"
+        );
+
+        const inputs=
+        section.querySelectorAll(
             "input,select,textarea"
         );
 
-        let completed=false;
+        let complete=false;
 
         inputs.forEach(el=>{
 
-            if(el.type==="checkbox" && el.checked){
-                completed=true;
+            if(
+                el.type==="checkbox"
+                &&
+                el.checked
+            ){
+                complete=true;
             }
 
-            if(el.type!=="checkbox" && el.value){
-                completed=true;
+            if(
+                el.type!=="checkbox"
+                &&
+                el.value
+            ){
+                complete=true;
             }
 
         });
 
-        const header=section.querySelector(".accordion-header");
+        if(
+            complete &&
+            !header.textContent.startsWith("✓")
+        ){
 
-        if(!header) return;
-
-        if(completed){
-
-            if(!header.innerHTML.includes("✓")){
-                header.innerHTML="✓ "+header.innerHTML;
-            }
+            header.textContent=
+            "✓ "+header.textContent;
 
         }
 
@@ -1038,99 +1236,99 @@ function updateSectionStatus(){
 
 }
 
-// Complete Inspection
-function completeInspection(){
+// =========================
+// SAVE BUTTON
+// =========================
 
-    saveData();
+document.getElementById("saveBtn")
+.addEventListener(
+    "click",
+    ()=>{
 
-    localStorage.setItem(
-        "sitescopBuildingComplete",
-        "true"
-    );
-
-    alert("Inspection Completed");
-
-}
-
-// Auto Updates
-document.querySelectorAll(
-    "input,select,textarea"
-).forEach(el=>{
-
-    el.addEventListener("change",()=>{
         saveData();
-        updateProgress();
-        updateSectionStatus();
-    });
 
-    el.addEventListener("keyup",()=>{
-        saveData();
-        updateProgress();
-        updateSectionStatus();
-    });
+        alert(
+            "Inspection Saved"
+        );
 
-});
+    }
+);
 
-updateProgress();
-updateSectionStatus();
-// ===== ADD TICK BOX ENGINE =====
+// =========================
+// COMPLETE BUTTON
+// =========================
 
-function addCustomCheckbox(group){
-
-    const text=prompt(
-        "Enter new item"
-    );
-
-    if(!text) return;
-
-    const label=document.createElement("label");
-
-    label.className="custom-item";
-
-    label.innerHTML=`
-        <input type="checkbox">
-        <span>${text}</span>
-        <button type="button"
-        class="edit-btn">✏️</button>
-        <button type="button"
-        class="delete-btn">✖</button>
-    `;
-
-    group.appendChild(label);
-
-}
-
-document.querySelectorAll(
-    ".add-item-btn"
-).forEach(btn=>{
-
-    btn.addEventListener(
-        "click",
-        ()=>{
-
-            const group=
-            btn.previousElementSibling;
-
-            addCustomCheckbox(group);
-
-        }
-    );
-
-});
-// Complete Button
 document.querySelectorAll("button")
 .forEach(btn=>{
 
-    if(btn.textContent.includes("Complete")){
+    if(
+        btn.textContent.includes(
+            "Complete"
+        )
+    ){
 
         btn.addEventListener(
             "click",
-            completeInspection
+            ()=>{
+
+                saveData();
+
+                localStorage.setItem(
+                    "sitescopBuildingComplete",
+                    "true"
+                );
+
+                alert(
+                    "Inspection Completed"
+                );
+
+            }
         );
 
     }
 
 });
+
+// =========================
+// AUTO SAVE
+// =========================
+
+document.querySelectorAll(
+    "input,select,textarea"
+)
+.forEach(el=>{
+
+    el.addEventListener(
+        "change",
+        ()=>{
+
+            saveData();
+            updateProgress();
+
+        }
+    );
+
+    el.addEventListener(
+        "keyup",
+        ()=>{
+
+            saveData();
+            updateProgress();
+
+        }
+    );
+
+});
+
+// =========================
+// STARTUP
+// =========================
+
+loadCustomItems();
+loadData();
+updateProgress();
+updateSectionStatus();
+
 </script>
 
 </body>
