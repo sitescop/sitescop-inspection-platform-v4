@@ -877,9 +877,13 @@ function saveData(){
 
     allInputs.forEach((el,index)=>{
 
+    if(el.type==="checkbox"){
+        data[index]=el.checked;
+    }else{
         data[index]=el.value;
+    }
 
-    });
+});
 
     localStorage.setItem(
         "sitescopBuildingDraft",
@@ -900,12 +904,15 @@ function loadData(){
 
     allInputs.forEach((el,index)=>{
 
-        if(data[index]!==undefined){
+       if(data[index]!==undefined){
 
-            el.value=data[index];
+    if(el.type==="checkbox"){
+        el.checked=data[index];
+    }else{
+        el.value=data[index];
+    }
 
-        }
-
+}
     });
 
 }
