@@ -1073,13 +1073,72 @@ document.querySelectorAll(
 
 updateProgress();
 updateSectionStatus();
-// ===== ADD TICK BOX ENGINE =====
+// ===== CUSTOM ITEMS WITH SAVE =====
+
+function saveCustomItems(){
+
+    const customData=[];
+
+    document.querySelectorAll(".checkbox-group").forEach((group,index)=>{
+
+        const items=[];
+
+        group.querySelectorAll(".custom-item").forEach(item=>{
+
+            items.push({
+                text:item.querySelector("span").textContent,
+                checked:item.querySelector("input").checked
+            });
+
+        });
+
+        customData[index]=items;
+
+    });
+
+    localStorage.setItem(
+        "sitescopCustomItems",
+        JSON.stringify(customData)
+    );
+
+}
+
+function loadCustomItems(){
+
+    const customData=JSON.parse(
+        localStorage.getItem("sitescopCustomItems")
+    );
+
+    if(!customData) return;
+
+    document.querySelectorAll(".checkbox-group").forEach((group,index)=>{
+
+        if(!customData[index]) return;
+
+        customData[index].forEach(item=>{
+
+            const label=document.createElement("label");
+
+            label.className="custom-item";
+
+            label.innerHTML=`
+                <input type="checkbox" ${item.checked ? "checked" : ""}>
+                <span>${item.text}</span>
+                <button type="button" class="edit-btn">✏️</button>
+                <button type="button" class="delete-btn">✖</button>
+            `;
+
+            group.appendChild(label);
+
+        });
+
+    });
+
+}
 
 function addCustomCheckbox(group){
 
-    const text=prompt(
-        "Enter new item"
-    );
+    const text=prompt("Enter new item");
 
     if(!text) return;
 
@@ -1090,33 +1149,70 @@ function addCustomCheckbox(group){
     label.innerHTML=`
         <input type="checkbox">
         <span>${text}</span>
-        <button type="button"
-        class="edit-btn">✏️</button>
-        <button type="button"
-        class="delete-btn">✖</button>
+        <button type="button" class="edit-btn">✏️</button>
+        <button type="button" class="delete-btn">✖</button>
     `;
 
     group.appendChild(label);
 
+    saveCustomItems();
+
 }
 
-document.querySelectorAll(
-    ".add-item-btn"
-).forEach(btn=>{
+document.querySelectorAll(".add-item-btn").forEach(btn=>{
 
-    btn.addEventListener(
-        "click",
-        ()=>{
+    btn.addEventListener("click",()=>{
 
-            const group=
-            btn.previousElementSibling;
+        const group=btn.previousElementSibling;
 
-            addCustomCheckbox(group);
+        addCustomCheckbox(group);
 
-        }
-    );
+    });
 
 });
+
+document.addEventListener("click",(e)=>{
+
+    if(e.target.classList.contains("delete-btn")){
+
+        e.target.parentElement.remove();
+
+        saveCustomItems();
+
+    }
+
+    if(e.target.classList.contains("edit-btn")){
+
+        const span=e.target.parentElement.querySelector("span");
+
+        const newText=prompt(
+            "Edit item",
+            span.textContent
+        );
+
+        if(newText){
+
+            span.textContent=newText;
+
+            saveCustomItems();
+
+        }
+
+    }
+
+});
+
+document.addEventListener("change",(e)=>{
+
+    if(
+        e.target.closest(".custom-item")
+    ){
+        saveCustomItems();
+    }
+
+});
+
+loadCustomItems();
 // Complete Button
 document.querySelectorAll("button")
 .forEach(btn=>{
