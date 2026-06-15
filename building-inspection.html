@@ -1,1 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiteScop V4 - Building Inspection</title>
 
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f6f8;
+    padding-bottom:80px;
+}
+
+.header{
+    background:#1f2937;
+    color:white;
+    padding:15px;
+}
+
+.header h1{
+    font-size:22px;
+}
+
+.job-info{
+    margin-top:8px;
+    font-size:14px;
+}
+
+.progress-wrapper{
+    margin-top:10px;
+}
+
+.progress-bar{
+    height:12px;
+    background:#444;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#22c55e;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:15px;
+}
+
+.accordion{
+    background:white;
+    border-radius:10px;
+    margin-bottom:10px;
+    overflow:hidden;
+    border:1px solid #ddd;
+}
+
+.accordion-header{
+    padding:15px;
+    background:#eef2f7;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.accordion-content{
+    display:none;
+    padding:15px;
+}
+
+.accordion-content.active{
+    display:block;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:12px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-bottom:5px;
+    font-size:14px;
+}
+
+input,
+select,
+textarea{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    width:100%;
+}
+
+textarea{
+    min-height:100px;
+}
+
+.checkbox-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.checkbox-group label{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.sticky-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#111827;
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    z-index:999;
+}
+
+.sticky-bar button{
+    border:none;
+    background:#374151;
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.sticky-bar button:hover{
+    background:#4b5563;
+}
+
+.photo-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.photo-buttons button{
+    padding:10px;
+}
+
+@media(max-width:768px){
+
+    .sticky-bar button{
+        padding:10px;
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>SiteScop V4 Building Inspection</h1>
+
+    <div class="job-info">
+        Job Number:
+        <span id="jobNumber">SC-NEW</span>
+    </div>
+
+    <div class="progress-wrapper">
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+<!-- JOB INFORMATION -->
+
+<div class="accordion">
+
+<div class="accordion-header">
+JOB INFORMATION
+</div>
+
+<div class="accordion-content active">
+
+<div class="grid">
+
+<div class="field">
+<label>Client Type</label>
+<select>
+<option>Owner</option>
+<option>Purchaser</option>
+<option>Agent</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Agency Name</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Agent Name</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Agent Mobile</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Agent Email</label>
+<input type="email">
+</div>
+
+<div class="field">
+<label>Client Name</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Mobile</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Email</label>
+<input type="email">
+</div>
+
+<div class="field">
+<label>Inspection Date</label>
+<input type="date">
+</div>
+
+<div class="field">
+<label>Inspection Time</label>
+<input type="time">
+</div>
+
+<div class="field">
+<label>Property Address</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>GPS Location</label>
+<input type="text">
+</div>
+
+</div>
+
+<div class="photo-buttons">
+<button>📷 Camera</button>
+<button>📁 Import</button>
+<button>🖼 Review (0)</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div class="accordion">
+
+<div class="accordion-header">
+SERVICES
+</div>
+
+<div class="accordion-content">
+
+<div class="grid">
+
+<div class="field">
+<label>Water Supply</label>
+<select>
+<option>Town Water</option>
+<option>Tank Water</option>
+<option>Bore Water</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Sewer</label>
+<select>
+<option>Town Sewer</option>
+<option>Septic</option>
+<option>Aerated System</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Electricity</label>
+<select>
+<option>Mains</option>
+<option>Solar + Mains</option>
+<option>Generator</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Gas</label>
+<select>
+<option>None</option>
+<option>Natural Gas</option>
+<option>LPG</option>
+<option>Other</option>
+</select>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PROPERTY DESCRIPTION -->
+
+<div class="accordion">
+
+<div class="accordion-header">
+PROPERTY DESCRIPTION
+</div>
+
+<div class="accordion-content">
+
+<div class="grid">
+
+<div class="field">
+<label>Property Type</label>
+<select>
+<option>Detached House</option>
+<option>Duplex</option>
+<option>Unit</option>
+<option>Townhouse</option>
+<option>Villa</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Position On Block</label>
+<select>
+<option>Front</option>
+<option>Middle</option>
+<option>Rear</option>
+</select>
+</div>
+
+<div class="field">
+<label>Storeys</label>
+<select>
+<option>Single</option>
+<option>Double</option>
+<option>Multi</option>
+</select>
+</div>
+
+<div class="field">
+<label>Building Age</label>
+<input type="number">
+</div>
+
+<div class="field">
+<label>Bedrooms</label>
+<input type="number">
+</div>
+
+<div class="field">
+<label>Bathrooms</label>
+<input type="number">
+</div>
+
+<div class="field">
+<label>Living Areas</label>
+<input type="number">
+</div>
+
+<div class="field">
+<label>Garage Spaces</label>
+<input type="number">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACCESSIBILITY -->
+
+<div class="accordion">
+
+<div class="accordion-header">
+ACCESSIBILITY
+</div>
+
+<div class="accordion-content">
+
+<div class="checkbox-group">
+
+<label><input type="checkbox"> Interior Obstructions</label>
+<label><input type="checkbox"> Exterior Obstructions</label>
+<label><input type="checkbox"> Roof Space</label>
+<label><input type="checkbox"> Subfloor</label>
+<label><input type="checkbox"> Site</label>
+<label><input type="checkbox"> Outbuilding</label>
+<label><input type="checkbox"> Roof Exterior</label>
+
+</div>
+
+<br>
+
+<textarea placeholder="Accessibility Notes"></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="sticky-bar">
+
+<button>🏠 Home</button>
+
+<button id="saveBtn">
+💾 Save
+</button>
+
+<button>
+✅ Complete
+</button>
+
+<button>
+📄 PDF
+</button>
+
+</div>
+
+<script>
+
+document
+.querySelectorAll(".accordion-header")
+.forEach(header=>{
+
+    header.addEventListener("click",()=>{
+
+        header.nextElementSibling
+        .classList.toggle("active");
+
+    });
+
+});
+
+const allInputs=document.querySelectorAll("input,select,textarea");
+
+allInputs.forEach(el=>{
+
+    el.addEventListener("change",saveData);
+
+});
+
+function saveData(){
+
+    const data={};
+
+    allInputs.forEach((el,index)=>{
+
+        data[index]=el.value;
+
+    });
+
+    localStorage.setItem(
+        "sitescopBuildingDraft",
+        JSON.stringify(data)
+    );
+
+}
+
+function loadData(){
+
+    const data=JSON.parse(
+        localStorage.getItem(
+            "sitescopBuildingDraft"
+        )
+    );
+
+    if(!data) return;
+
+    allInputs.forEach((el,index)=>{
+
+        if(data[index]!==undefined){
+
+            el.value=data[index];
+
+        }
+
+    });
+
+}
+
+document
+.getElementById("saveBtn")
+.addEventListener("click",()=>{
+
+    saveData();
+
+    alert("Inspection Saved");
+
+});
+
+loadData();
+
+</script>
+
+</body>
+</html>
