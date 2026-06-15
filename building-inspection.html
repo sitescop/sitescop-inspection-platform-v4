@@ -1086,6 +1086,8 @@ class="add-item-btn">
 <div class="field">
 <label>Condition</label>
 <select>
+<option value="">Select</option>
+<option>Excellent</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1095,8 +1097,18 @@ class="add-item-btn">
 </div>
 
 <div class="field">
-<label>Taps</label>
+<label>Basin Type</label>
 <select>
+<option value="">Select</option>
+<option>Single Basin</option>
+<option>Double Basin</option>
+</select>
+</div>
+
+<div class="field">
+<label>Tap Condition</label>
+<select>
+<option value="">Select</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1107,6 +1119,7 @@ class="add-item-btn">
 <div class="field">
 <label>Drainage</label>
 <select>
+<option value="">Select</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1114,18 +1127,29 @@ class="add-item-btn">
 </select>
 </div>
 
+<div class="field">
+<label>Cabinet Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Water Damaged</option>
+<option>Swollen</option>
+<option>Delaminating</option>
+</select>
 </div>
 
-<div class="checkbox-group">
-
-<label><input type="checkbox"> Cracked Basin</label>
-<label><input type="checkbox"> Loose Basin</label>
-<label><input type="checkbox"> Leaking Waste</label>
-<label><input type="checkbox"> Overflow Fault</label>
-<label><input type="checkbox"> Water Damage</label>
-<label><input type="checkbox"> Swollen Panels</label>
-<label><input type="checkbox"> Delamination</label>
-<label><input type="checkbox"> Door Damage</label>
+<div class="field">
+<label>Water Damage</label>
+<select>
+<option value="">Select</option>
+<option>None</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
+</div>
 
 </div>
 
@@ -1152,6 +1176,8 @@ class="add-item-btn">
 <div class="field">
 <label>Condition</label>
 <select>
+<option value="">Select</option>
+<option>Excellent</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1163,6 +1189,7 @@ class="add-item-btn">
 <div class="field">
 <label>Flush Operation</label>
 <select>
+<option value="">Select</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1170,17 +1197,48 @@ class="add-item-btn">
 </select>
 </div>
 
+<div class="field">
+<label>Leakage</label>
+<select>
+<option value="">Select</option>
+<option>No</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
 </div>
 
-<div class="checkbox-group">
+<div class="field">
+<label>Blocked</label>
+<select>
+<option value="">Select</option>
+<option>No</option>
+<option>Partial</option>
+<option>Yes</option>
+</select>
+</div>
 
-<label><input type="checkbox"> Blocked</label>
-<label><input type="checkbox"> Leakage</label>
-<label><input type="checkbox"> Loose Seat</label>
-<label><input type="checkbox"> Cracked Pan</label>
-<label><input type="checkbox"> Movement</label>
-<label><input type="checkbox"> Cistern Fault</label>
-<label><input type="checkbox"> Continuous Running Water</label>
+<div class="field">
+<label>Seat Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Damaged</option>
+</select>
+</div>
+
+<div class="field">
+<label>Pan Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Cracked</option>
+</select>
+</div>
 
 </div>
 
@@ -1207,6 +1265,8 @@ class="add-item-btn">
 <div class="field">
 <label>Condition</label>
 <select>
+<option value="">Select</option>
+<option>Excellent</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1216,6 +1276,7 @@ class="add-item-btn">
 <div class="field">
 <label>Drainage</label>
 <select>
+<option value="">Select</option>
 <option>Good</option>
 <option>Fair</option>
 <option>Poor</option>
@@ -1223,20 +1284,209 @@ class="add-item-btn">
 </select>
 </div>
 
+<div class="field">
+<label>Water Pooling</label>
+<select>
+<option value="">Select</option>
+<option>None</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
 </div>
 
-<div class="checkbox-group">
+<div class="field">
+<label>Waterproofing Concern</label>
+<select>
+<option value="">Select</option>
+<option>No</option>
+<option>Suspected</option>
+<option>Confirmed</option>
+</select>
+</div>
 
-<label><input type="checkbox"> Water Pooling</label>
-<label><input type="checkbox"> Leaking Fittings</label>
-<label><input type="checkbox"> Damaged Shower Head</label>
-<label><input type="checkbox"> Missing Silicone</label>
-<label><input type="checkbox"> Waterproofing Concern</label>
-<label><input type="checkbox"> Damaged Screen</label>
+<div class="field">
+<label>Silicone Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Missing</option>
+<option>Failed</option>
+</select>
+</div>
+
+<div class="field">
+<label>Shower Head Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Damaged</option>
+</select>
+</div>
 
 </div>
 
 <textarea placeholder="Shower Comments"></textarea>
+
+<div class="photo-buttons">
+<button>📷 Camera</button>
+<button>📁 Import</button>
+<button>🖼 Review (0)</button>
+</div>
+
+<hr>
+
+</div>
+
+<!-- SHOWER SCREEN -->
+
+<div id="screenSection" style="display:none">
+
+<h4>SHOWER SCREEN</h4>
+
+<div class="grid">
+
+<div class="field">
+<label>Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Damaged</option>
+</select>
+</div>
+
+<div class="field">
+<label>Water Escaping</label>
+<select>
+<option value="">Select</option>
+<option>No</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
+</div>
+
+<div class="field">
+<label>Seal Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Failed</option>
+</select>
+</div>
+
+<div class="field">
+<label>Glass Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Damaged</option>
+<option>Cracked</option>
+</select>
+</div>
+
+<div class="field">
+<label>Silicone Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Missing</option>
+<option>Failed</option>
+</select>
+</div>
+
+</div>
+
+<textarea placeholder="Shower Screen Comments"></textarea>
+
+<div class="photo-buttons">
+<button>📷 Camera</button>
+<button>📁 Import</button>
+<button>🖼 Review (0)</button>
+</div>
+
+<hr>
+
+</div>
+
+<!-- DOOR & DOOR JAMB -->
+
+<div id="doorSection" style="display:none">
+
+<h4>DOOR & DOOR JAMB</h4>
+
+<div class="grid">
+
+<div class="field">
+<label>Condition</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Damaged</option>
+</select>
+</div>
+
+<div class="field">
+<label>Moisture Damage</label>
+<select>
+<option value="">Select</option>
+<option>None</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
+</div>
+
+<div class="field">
+<label>Door Swelling</label>
+<select>
+<option value="">Select</option>
+<option>No</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
+</div>
+
+<div class="field">
+<label>Delamination</label>
+<select>
+<option value="">Select</option>
+<option>No</option>
+<option>Minor</option>
+<option>Moderate</option>
+<option>Major</option>
+</select>
+</div>
+
+<div class="field">
+<label>Door Operation</label>
+<select>
+<option value="">Select</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Not Operating</option>
+</select>
+</div>
+
+</div>
+
+<textarea placeholder="Door & Door Jamb Comments"></textarea>
 
 <div class="photo-buttons">
 <button>📷 Camera</button>
