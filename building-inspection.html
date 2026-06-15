@@ -1820,6 +1820,22 @@ document.querySelectorAll("button")
     }
 
 });
+    document.querySelectorAll(".fixture-toggle").forEach(box=>{
+
+    box.addEventListener("change",function(){
+
+        const target=document.getElementById(
+            this.dataset.target
+        );
+
+        if(!target) return;
+
+        target.style.display=
+            this.checked ? "block" : "none";
+
+    });
+
+});
 </script>
 
 </body>
