@@ -920,6 +920,11 @@ document
 
 });
 
+document.querySelectorAll("input, select, textarea").forEach(el=>{
+    el.addEventListener("change",saveData);
+    el.addEventListener("keyup",saveData);
+});
+
 loadData();
 
 </script>
