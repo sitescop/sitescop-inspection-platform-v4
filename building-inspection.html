@@ -1031,22 +1031,37 @@ BATHROOMS
 
 <h4>Fixtures Present</h4>
 
-<div class="checkbox-group">
+<div class="checkbox-group bathroom-fixtures">
 
-<label><input type="checkbox"> Single Basin</label>
-<label><input type="checkbox"> Double Basin</label>
-<label><input type="checkbox"> Toilet</label>
-<label><input type="checkbox"> Shower</label>
-<label><input type="checkbox"> Shower Screen</label>
-<label><input type="checkbox"> Shower Curtain</label>
-<label><input type="checkbox"> Bath Tub</label>
-<label><input type="checkbox"> Spa Bath</label>
-<label><input type="checkbox"> Vanity Cabinet</label>
-<label><input type="checkbox"> Window</label>
-<label><input type="checkbox"> Exhaust Fan</label>
-<label><input type="checkbox"> Heat Lamp</label>
-<label><input type="checkbox"> Towel Rail</label>
-<label><input type="checkbox"> Floor Waste</label>
+<label><input type="checkbox" class="fixture-toggle" data-target="basinSection"> Single Basin</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="doubleBasinSection"> Double Basin</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="toiletSection"> Toilet</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="showerSection"> Shower</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="screenSection"> Shower Screen</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="bathSection"> Bath Tub</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="windowSection"> Window</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="fanSection"> Exhaust Fan</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="heatSection"> Heat Lamp</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="railSection"> Towel Rail</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="wasteSection"> Floor Waste</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="mirrorSection"> Mirror</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="shavingSection"> Shaving Cabinet</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="bidetSection"> Bidet</label>
+
+<label><input type="checkbox" class="fixture-toggle" data-target="skySection"> Skylight</label>
 
 </div>
 
@@ -1057,6 +1072,183 @@ class="add-item-btn">
 </button>
 
 <br>
+
+<div id="bathroom-fixture-inspections">
+
+<!-- BASIN & VANITY -->
+
+<div id="basinSection" style="display:none">
+
+<h4>BASIN & VANITY CABINET</h4>
+
+<div class="grid">
+
+<div class="field">
+<label>Condition</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Broken</option>
+<option>Cracked</option>
+</select>
+</div>
+
+<div class="field">
+<label>Taps</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Leaking</option>
+</select>
+</div>
+
+<div class="field">
+<label>Drainage</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Blocked</option>
+</select>
+</div>
+
+</div>
+
+<div class="checkbox-group">
+
+<label><input type="checkbox"> Cracked Basin</label>
+<label><input type="checkbox"> Loose Basin</label>
+<label><input type="checkbox"> Leaking Waste</label>
+<label><input type="checkbox"> Overflow Fault</label>
+<label><input type="checkbox"> Water Damage</label>
+<label><input type="checkbox"> Swollen Panels</label>
+<label><input type="checkbox"> Delamination</label>
+<label><input type="checkbox"> Door Damage</label>
+
+</div>
+
+<textarea placeholder="Basin & Vanity Comments"></textarea>
+
+<div class="photo-buttons">
+<button>📷 Camera</button>
+<button>📁 Import</button>
+<button>🖼 Review (0)</button>
+</div>
+
+<hr>
+
+</div>
+
+<!-- TOILET -->
+
+<div id="toiletSection" style="display:none">
+
+<h4>TOILET</h4>
+
+<div class="grid">
+
+<div class="field">
+<label>Condition</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Broken</option>
+<option>Cracked</option>
+</select>
+</div>
+
+<div class="field">
+<label>Flush Operation</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Not Operating</option>
+</select>
+</div>
+
+</div>
+
+<div class="checkbox-group">
+
+<label><input type="checkbox"> Blocked</label>
+<label><input type="checkbox"> Leakage</label>
+<label><input type="checkbox"> Loose Seat</label>
+<label><input type="checkbox"> Cracked Pan</label>
+<label><input type="checkbox"> Movement</label>
+<label><input type="checkbox"> Cistern Fault</label>
+<label><input type="checkbox"> Continuous Running Water</label>
+
+</div>
+
+<textarea placeholder="Toilet Comments"></textarea>
+
+<div class="photo-buttons">
+<button>📷 Camera</button>
+<button>📁 Import</button>
+<button>🖼 Review (0)</button>
+</div>
+
+<hr>
+
+</div>
+
+<!-- SHOWER -->
+
+<div id="showerSection" style="display:none">
+
+<h4>SHOWER</h4>
+
+<div class="grid">
+
+<div class="field">
+<label>Condition</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+</select>
+</div>
+
+<div class="field">
+<label>Drainage</label>
+<select>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Blocked</option>
+</select>
+</div>
+
+</div>
+
+<div class="checkbox-group">
+
+<label><input type="checkbox"> Water Pooling</label>
+<label><input type="checkbox"> Leaking Fittings</label>
+<label><input type="checkbox"> Damaged Shower Head</label>
+<label><input type="checkbox"> Missing Silicone</label>
+<label><input type="checkbox"> Waterproofing Concern</label>
+<label><input type="checkbox"> Damaged Screen</label>
+
+</div>
+
+<textarea placeholder="Shower Comments"></textarea>
+
+<div class="photo-buttons">
+<button>📷 Camera</button>
+<button>📁 Import</button>
+<button>🖼 Review (0)</button>
+</div>
+
+<hr>
+
+</div>
+
+</div>
 
 <h4>Floor</h4>
 
