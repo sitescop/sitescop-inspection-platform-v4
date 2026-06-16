@@ -2195,6 +2195,20 @@ document.querySelectorAll("input, select, textarea").forEach(el=>{
 });
 
 loadData();
+    document.querySelectorAll(".fixture-toggle").forEach(box=>{
+
+    const target=document.getElementById(
+        box.dataset.target
+    );
+
+    if(target){
+
+        target.style.display=
+            box.checked ? "block" : "none";
+
+    }
+
+});
 // ===== STEP 3 FRAMEWORK =====
 
 // Progress Bar
