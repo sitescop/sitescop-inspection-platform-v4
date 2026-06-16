@@ -2195,6 +2195,19 @@ document.querySelectorAll("input, select, textarea").forEach(el=>{
 });
 
 loadData();
+    generateBathrooms();
+
+const bathroomCount =
+document.getElementById("bathroomCount");
+
+if(bathroomCount){
+
+    bathroomCount.addEventListener(
+        "change",
+        generateBathrooms
+    );
+
+}
     document.querySelectorAll(".fixture-toggle").forEach(box=>{
 
     const target=document.getElementById(
