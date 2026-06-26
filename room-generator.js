@@ -106,7 +106,7 @@ async function generateBedrooms() {
         container.appendChild(accordion);
 
     }
-
+initialiseDynamicRooms();
 }
 document.addEventListener("DOMContentLoaded", () => {
 
