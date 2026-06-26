@@ -1,48 +1,64 @@
-<!-- ========================================= -->
-<!-- SiteScop V4 - Bedroom V2 -->
-<!-- ========================================= -->
+<!-- ========================================================= -->
+<!-- SiteScop V4 - Bedroom V3 -->
+<!-- ========================================================= -->
 
 <style>
 
+/* ==========================================================
+   BEDROOM V3
+========================================================== */
+
 :root{
 
---primary:#0F5BA7;
---green:#2E7D32;
---red:#C62828;
---gold:#F9A825;
---border:#d9d9d9;
+--primary:#0b63b6;
+--primary-light:#edf6ff;
+
+--green:#28a745;
+--red:#dc3545;
+--gold:#f4b400;
+
+--border:#d7dde5;
+--background:#f5f7fb;
 --card:#ffffff;
---bg:#f5f7fb;
+
+--radius:12px;
+
+}
+
+*{
+
+box-sizing:border-box;
 
 }
 
 body{
 
-background:var(--bg);
-
-font-family:Arial,Helvetica,sans-serif;
-
 margin:0;
-
 padding:15px;
+font-family:Arial,Helvetica,sans-serif;
+background:var(--background);
 
 }
+
+/* ========================================================== */
 
 .room-card{
 
 background:#fff;
 
-border-radius:12px;
+border:1px solid var(--border);
 
-padding:18px;
+border-radius:var(--radius);
+
+box-shadow:0 2px 10px rgba(0,0,0,.08);
 
 margin-bottom:20px;
 
-box-shadow:0 3px 12px rgba(0,0,0,.10);
-
-border:1px solid #ddd;
+overflow:hidden;
 
 }
+
+/* ========================================================== */
 
 .room-title{
 
@@ -50,19 +66,17 @@ background:var(--primary);
 
 color:#fff;
 
-padding:12px 18px;
+padding:16px 20px;
 
-border-radius:8px;
-
-font-size:20px;
+font-size:22px;
 
 font-weight:bold;
 
-margin-bottom:18px;
-
 }
 
-.section-title{
+/* ========================================================== */
+
+.section-header{
 
 display:flex;
 
@@ -70,31 +84,39 @@ justify-content:space-between;
 
 align-items:center;
 
-background:#edf4fc;
+padding:14px 18px;
 
-padding:12px 15px;
+background:var(--primary-light);
 
-border-radius:8px;
+font-size:18px;
 
 font-weight:bold;
 
-font-size:17px;
-
-margin-top:18px;
-
-margin-bottom:12px;
+border-bottom:1px solid var(--border);
 
 }
 
-.grid2{
+/* ========================================================== */
+
+.section-body{
+
+padding:18px;
+
+}
+
+/* ========================================================== */
+
+.grid-2{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
 gap:18px;
 
 }
+
+/* ========================================================== */
 
 .field{
 
@@ -102,45 +124,83 @@ display:flex;
 
 flex-direction:column;
 
+gap:6px;
+
 }
 
 .field label{
 
 font-weight:bold;
 
-margin-bottom:6px;
-
 }
 
 .field select,
-
 .field input,
-
 .field textarea{
 
 padding:10px;
 
-border-radius:8px;
-
 border:1px solid #ccc;
 
+border-radius:8px;
+
 font-size:15px;
+
+width:100%;
 
 }
 
 textarea{
 
-resize:vertical;
-
 min-height:90px;
+
+resize:vertical;
 
 }
 
-.action-btn{
+/* ========================================================== */
+
+.checkbox-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:12px 24px;
+
+}
+
+.checkbox-grid label{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+cursor:pointer;
+
+}
+
+/* ========================================================== */
+
+.photo-buttons{
+
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+}
+
+/* ========================================================== */
+
+.btn{
 
 border:none;
 
-padding:8px 16px;
+padding:10px 18px;
 
 border-radius:20px;
 
@@ -148,13 +208,13 @@ font-weight:bold;
 
 cursor:pointer;
 
-background:#ececec;
-
 transition:.25s;
+
+background:#ececec;
 
 }
 
-.action-btn.active-green{
+.btn-green.active{
 
 background:var(--green);
 
@@ -162,7 +222,7 @@ color:#fff;
 
 }
 
-.action-btn.active-red{
+.btn-red.active{
 
 background:var(--red);
 
@@ -170,7 +230,7 @@ color:#fff;
 
 }
 
-.action-btn.active-gold{
+.btn-gold.active{
 
 background:var(--gold);
 
@@ -186,7 +246,7 @@ display:none;
 
 </style>
 
-
+<!-- ========================================================= -->
 
 <div class="room-card">
 
@@ -196,17 +256,13 @@ Bedroom Inspection
 
 </div>
 
+<div class="section-body">
 
-
-<div class="grid2">
+<div class="grid-2">
 
 <div class="field">
 
-<label>
-
-Room Type
-
-</label>
+<label>Room Type</label>
 
 <select>
 
@@ -226,39 +282,27 @@ Room Type
 
 </div>
 
-
-
 <div class="field">
 
-<label>
+<label>Access Available</label>
 
-Access Available
-
-</label>
-
-<div>
+<div style="display:flex;gap:10px;">
 
 <button
-
 type="button"
+id="accessYes"
+class="btn btn-green active">
 
-class="action-btn active-green"
-
-id="accessYes">
-
-YES
+Yes
 
 </button>
 
 <button
-
 type="button"
+id="accessNo"
+class="btn btn-red">
 
-class="action-btn"
-
-id="accessNo">
-
-NO
+No
 
 </button>
 
@@ -267,24 +311,15 @@ NO
 </div>
 
 </div>
-
-
 
 <div
-
 id="accessReason"
-
 class="hidden"
-
-style="margin-top:18px;">
+style="margin-top:20px;">
 
 <div class="field">
 
-<label>
-
-Reason No Access
-
-</label>
+<label>Reason No Access</label>
 
 <select>
 
@@ -308,63 +343,66 @@ Reason No Access
 
 </div>
 
+</div>
+
 </div> 
+
 <!-- ========================================================= -->
 <!-- 2. DOOR & DOOR JAMB -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
 
         <span>2. Door & Door Jamb</span>
 
         <button
             type="button"
             id="doorNA"
-            class="action-btn">
+            class="btn btn-gold">
             N/A
         </button>
 
     </div>
 
-    <div id="doorSection">
+    <div
+        class="section-body"
+        id="doorSection">
 
-        <div style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:12px;
-        margin-bottom:20px;">
+        <div class="checkbox-grid">
 
-            <label><input type="checkbox"> Door Damaged</label>
+            <label><input type="checkbox">Door Damaged</label>
 
-            <label><input type="checkbox"> Door Moisture Damage</label>
+            <label><input type="checkbox">Door Moisture Damage</label>
 
-            <label><input type="checkbox"> Door Paint Damage</label>
+            <label><input type="checkbox">Door Paint Damage</label>
 
-            <label><input type="checkbox"> Door Frame Damage</label>
+            <label><input type="checkbox">Door Frame Damage</label>
 
-            <label><input type="checkbox"> Door Jamb Damage</label>
+            <label><input type="checkbox">Door Jamb Damage</label>
 
-            <label><input type="checkbox"> Door Swollen</label>
+            <label><input type="checkbox">Door Swollen</label>
 
-            <label><input type="checkbox"> Door Delaminating</label>
+            <label><input type="checkbox">Door Delaminating</label>
 
-            <label><input type="checkbox"> Door Rubbing</label>
+            <label><input type="checkbox">Door Rubbing</label>
 
-            <label><input type="checkbox"> Door Does Not Close Properly</label>
+            <label><input type="checkbox">Door Does Not Close Properly</label>
 
-            <label><input type="checkbox"> Lock Not Working</label>
+            <label><input type="checkbox">Lock Not Working</label>
 
-            <label><input type="checkbox"> Handle Not Working</label>
+            <label><input type="checkbox">Handle Not Working</label>
 
-            <label><input type="checkbox"> Door Stop Missing</label>
+            <label><input type="checkbox">Door Stop Missing</label>
 
-            <label><input type="checkbox"> Security Concern</label>
+            <label><input type="checkbox">Security Concern</label>
 
         </div>
 
-        <div class="grid2">
+        <br>
+
+        <div class="grid-2">
 
             <div class="field">
 
@@ -379,27 +417,24 @@ Reason No Access
 
                 <label>Photos</label>
 
-                <div style="
-                display:flex;
-                gap:10px;
-                flex-wrap:wrap;">
+                <div class="photo-buttons">
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    📷 Camera
+                        type="button"
+                        class="btn">
+                        📷 Camera
                     </button>
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    📁 Import
+                        type="button"
+                        class="btn">
+                        📁 Import
                     </button>
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    🖼 Review
+                        type="button"
+                        class="btn">
+                        🖼 Review
                     </button>
 
                 </div>
@@ -410,33 +445,32 @@ Reason No Access
 
     </div>
 
-</div> 
+</div>   
+
 <!-- ========================================================= -->
 <!-- 3. WINDOW -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
 
         <span>3. Window</span>
 
         <button
             type="button"
             id="windowNA"
-            class="action-btn">
+            class="btn btn-gold">
             N/A
         </button>
 
     </div>
 
-    <div id="windowSection">
+    <div
+        class="section-body"
+        id="windowSection">
 
-        <div style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:12px;
-        margin-bottom:20px;">
+        <div class="checkbox-grid">
 
             <label><input type="checkbox"> Glass Cracked</label>
 
@@ -460,7 +494,9 @@ Reason No Access
 
         </div>
 
-        <div class="grid2">
+        <br>
+
+        <div class="grid-2">
 
             <div class="field">
 
@@ -475,27 +511,24 @@ Reason No Access
 
                 <label>Photos</label>
 
-                <div style="
-                display:flex;
-                gap:10px;
-                flex-wrap:wrap;">
+                <div class="photo-buttons">
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    📷 Camera
+                        type="button"
+                        class="btn">
+                        📷 Camera
                     </button>
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    📁 Import
+                        type="button"
+                        class="btn">
+                        📁 Import
                     </button>
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    🖼 Review
+                        type="button"
+                        class="btn">
+                        🖼 Review
                     </button>
 
                 </div>
@@ -507,32 +540,31 @@ Reason No Access
     </div>
 
 </div> 
+
 <!-- ========================================================= -->
 <!-- 4. WARDROBE -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
 
         <span>4. Wardrobe</span>
 
         <button
             type="button"
             id="wardrobeNA"
-            class="action-btn">
+            class="btn btn-gold">
             N/A
         </button>
 
     </div>
 
-    <div id="wardrobeSection">
+    <div
+        class="section-body"
+        id="wardrobeSection">
 
-        <div style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:12px;
-        margin-bottom:20px;">
+        <div class="checkbox-grid">
 
             <label><input type="checkbox"> Doors Damaged</label>
 
@@ -550,7 +582,9 @@ Reason No Access
 
         </div>
 
-        <div class="grid2">
+        <br>
+
+        <div class="grid-2">
 
             <div class="field">
 
@@ -565,27 +599,24 @@ Reason No Access
 
                 <label>Photos</label>
 
-                <div style="
-                display:flex;
-                gap:10px;
-                flex-wrap:wrap;">
+                <div class="photo-buttons">
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    📷 Camera
+                        type="button"
+                        class="btn">
+                        📷 Camera
                     </button>
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    📁 Import
+                        type="button"
+                        class="btn">
+                        📁 Import
                     </button>
 
                     <button
-                    type="button"
-                    class="action-btn">
-                    🖼 Review
+                        type="button"
+                        class="btn">
+                        🖼 Review
                     </button>
 
                 </div>
@@ -597,69 +628,57 @@ Reason No Access
     </div>
 
 </div> 
+
 <!-- ========================================================= -->
 <!-- 5. WALLS -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
         <span>5. Walls</span>
     </div>
 
-    <div class="checkbox-grid">
+    <div class="section-body">
 
-        <label><input type="checkbox"> Cracking</label>
+        <div class="checkbox-grid">
 
-        <label><input type="checkbox"> Settlement Cracking</label>
-
-        <label><input type="checkbox"> Impact Damage</label>
-
-        <label><input type="checkbox"> Moisture Damage</label>
-
-        <label><input type="checkbox"> Water Staining</label>
-
-        <label><input type="checkbox"> Paint Damage</label>
-
-        <label><input type="checkbox"> Plaster Damage</label>
-
-        <label><input type="checkbox"> Bulging</label>
-
-        <label><input type="checkbox"> Mould</label>
-
-        <label><input type="checkbox"> Efflorescence</label>
-
-    </div>
-
-    <div class="grid2">
-
-        <div class="field">
-
-            <label>Comments</label>
-
-            <textarea
-                rows="4"
-                placeholder="Enter comments..."></textarea>
+            <label><input type="checkbox"> Cracking</label>
+            <label><input type="checkbox"> Settlement Cracking</label>
+            <label><input type="checkbox"> Impact Damage</label>
+            <label><input type="checkbox"> Moisture Damage</label>
+            <label><input type="checkbox"> Water Staining</label>
+            <label><input type="checkbox"> Paint Damage</label>
+            <label><input type="checkbox"> Plaster Damage</label>
+            <label><input type="checkbox"> Bulging</label>
+            <label><input type="checkbox"> Mould</label>
+            <label><input type="checkbox"> Efflorescence</label>
 
         </div>
 
-        <div class="field">
+        <br>
 
-            <label>Photos</label>
+        <div class="grid-2">
 
-            <div class="photo-buttons">
+            <div class="field">
 
-                <button type="button" class="action-btn">
-                    📷 Camera
-                </button>
+                <label>Comments</label>
 
-                <button type="button" class="action-btn">
-                    📁 Import
-                </button>
+                <textarea placeholder="Enter comments..."></textarea>
 
-                <button type="button" class="action-btn">
-                    🖼 Review
-                </button>
+            </div>
+
+            <div class="field">
+
+                <label>Photos</label>
+
+                <div class="photo-buttons">
+
+                    <button class="btn">📷 Camera</button>
+                    <button class="btn">📁 Import</button>
+                    <button class="btn">🖼 Review</button>
+
+                </div>
 
             </div>
 
@@ -667,66 +686,56 @@ Reason No Access
 
     </div>
 
-</div> 
+</div>
+
 <!-- ========================================================= -->
 <!-- 6. CEILING -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
         <span>6. Ceiling</span>
     </div>
 
-    <div class="checkbox-grid">
+    <div class="section-body">
 
-        <label><input type="checkbox"> Cracking</label>
+        <div class="checkbox-grid">
 
-        <label><input type="checkbox"> Water Staining</label>
-
-        <label><input type="checkbox"> Moisture Damage</label>
-
-        <label><input type="checkbox"> Sagging</label>
-
-        <label><input type="checkbox"> Paint Damage</label>
-
-        <label><input type="checkbox"> Plaster Damage</label>
-
-        <label><input type="checkbox"> Mould</label>
-
-        <label><input type="checkbox"> Holes</label>
-
-    </div>
-
-    <div class="grid2">
-
-        <div class="field">
-
-            <label>Comments</label>
-
-            <textarea
-                rows="4"
-                placeholder="Enter comments..."></textarea>
+            <label><input type="checkbox"> Cracking</label>
+            <label><input type="checkbox"> Water Staining</label>
+            <label><input type="checkbox"> Moisture Damage</label>
+            <label><input type="checkbox"> Sagging</label>
+            <label><input type="checkbox"> Paint Damage</label>
+            <label><input type="checkbox"> Plaster Damage</label>
+            <label><input type="checkbox"> Mould</label>
+            <label><input type="checkbox"> Holes</label>
 
         </div>
 
-        <div class="field">
+        <br>
 
-            <label>Photos</label>
+        <div class="grid-2">
 
-            <div class="photo-buttons">
+            <div class="field">
 
-                <button type="button" class="action-btn">
-                    📷 Camera
-                </button>
+                <label>Comments</label>
 
-                <button type="button" class="action-btn">
-                    📁 Import
-                </button>
+                <textarea placeholder="Enter comments..."></textarea>
 
-                <button type="button" class="action-btn">
-                    🖼 Review
-                </button>
+            </div>
+
+            <div class="field">
+
+                <label>Photos</label>
+
+                <div class="photo-buttons">
+
+                    <button class="btn">📷 Camera</button>
+                    <button class="btn">📁 Import</button>
+                    <button class="btn">🖼 Review</button>
+
+                </div>
 
             </div>
 
@@ -742,61 +751,49 @@ Reason No Access
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
         <span>7. Floor</span>
     </div>
 
-    <div class="checkbox-grid">
+    <div class="section-body">
 
-        <label><input type="checkbox"> Uneven</label>
+        <div class="checkbox-grid">
 
-        <label><input type="checkbox"> Movement</label>
-
-        <label><input type="checkbox"> Moisture Damage</label>
-
-        <label><input type="checkbox"> Water Damage</label>
-
-        <label><input type="checkbox"> Cracked Tiles</label>
-
-        <label><input type="checkbox"> Broken Tiles</label>
-
-        <label><input type="checkbox"> Damaged Timber</label>
-
-        <label><input type="checkbox"> Carpet Damage</label>
-
-        <label><input type="checkbox"> Delamination</label>
-
-    </div>
-
-    <div class="grid2">
-
-        <div class="field">
-
-            <label>Comments</label>
-
-            <textarea
-                rows="4"
-                placeholder="Enter comments..."></textarea>
+            <label><input type="checkbox"> Uneven</label>
+            <label><input type="checkbox"> Movement</label>
+            <label><input type="checkbox"> Moisture Damage</label>
+            <label><input type="checkbox"> Water Damage</label>
+            <label><input type="checkbox"> Cracked Tiles</label>
+            <label><input type="checkbox"> Broken Tiles</label>
+            <label><input type="checkbox"> Damaged Timber</label>
+            <label><input type="checkbox"> Carpet Damage</label>
+            <label><input type="checkbox"> Delamination</label>
 
         </div>
 
-        <div class="field">
+        <br>
 
-            <label>Photos</label>
+        <div class="grid-2">
 
-            <div class="photo-buttons">
+            <div class="field">
 
-                <button type="button" class="action-btn">
-                    📷 Camera
-                </button>
+                <label>Comments</label>
 
-                <button type="button" class="action-btn">
-                    📁 Import
-                </button>
+                <textarea placeholder="Enter comments..."></textarea>
 
-                <button type="button" class="action-btn">
-                    🖼 Review
-                </button>
+            </div>
+
+            <div class="field">
+
+                <label>Photos</label>
+
+                <div class="photo-buttons">
+
+                    <button class="btn">📷 Camera</button>
+                    <button class="btn">📁 Import</button>
+                    <button class="btn">🖼 Review</button>
+
+                </div>
 
             </div>
 
@@ -805,42 +802,53 @@ Reason No Access
     </div>
 
 </div> 
+
 <!-- ========================================================= -->
-<!-- 8. HEATING / COOLING -->
+<!-- 8. HEATING & COOLING -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
+    <div class="section-header">
 
-        <span>8. Heating / Cooling</span>
+        <span>8. Heating & Cooling</span>
 
         <button
             type="button"
             id="heatingNone"
-            class="action-btn">
+            class="btn btn-gold">
             None
         </button>
 
     </div>
 
-    <div id="heatingSection">
+    <div
+        id="heatingSection"
+        class="section-body">
 
-        <div class="grid2">
+        <div class="grid-2">
 
             <!-- Air Conditioner -->
 
             <div class="room-card">
 
-                <h4>Air Conditioner</h4>
+                <div class="section-header">
 
-                <div class="checkbox-grid">
+                    Air Conditioner
 
-                    <label><input type="checkbox"> Good Visual Condition</label>
+                </div>
 
-                    <label><input type="checkbox"> Damaged</label>
+                <div class="section-body">
 
-                    <label><input type="checkbox"> Unable to Assess</label>
+                    <div class="checkbox-grid">
+
+                        <label><input type="checkbox"> Good Visual Condition</label>
+
+                        <label><input type="checkbox"> Damaged</label>
+
+                        <label><input type="checkbox"> Unable to Assess</label>
+
+                    </div>
 
                 </div>
 
@@ -850,15 +858,23 @@ Reason No Access
 
             <div class="room-card">
 
-                <h4>Ceiling Fan</h4>
+                <div class="section-header">
 
-                <div class="checkbox-grid">
+                    Ceiling Fan
 
-                    <label><input type="checkbox"> Good Visual Condition</label>
+                </div>
 
-                    <label><input type="checkbox"> Damaged</label>
+                <div class="section-body">
 
-                    <label><input type="checkbox"> Unable to Assess</label>
+                    <div class="checkbox-grid">
+
+                        <label><input type="checkbox"> Good Visual Condition</label>
+
+                        <label><input type="checkbox"> Damaged</label>
+
+                        <label><input type="checkbox"> Unable to Assess</label>
+
+                    </div>
 
                 </div>
 
@@ -868,14 +884,13 @@ Reason No Access
 
         <br>
 
-        <div class="grid2">
+        <div class="grid-2">
 
             <div class="field">
 
                 <label>Comments</label>
 
                 <textarea
-                    rows="4"
                     placeholder="Enter comments..."></textarea>
 
             </div>
@@ -886,15 +901,15 @@ Reason No Access
 
                 <div class="photo-buttons">
 
-                    <button type="button" class="action-btn">
+                    <button class="btn">
                         📷 Camera
                     </button>
 
-                    <button type="button" class="action-btn">
+                    <button class="btn">
                         📁 Import
                     </button>
 
-                    <button type="button" class="action-btn">
+                    <button class="btn">
                         🖼 Review
                     </button>
 
@@ -906,62 +921,110 @@ Reason No Access
 
     </div>
 
-</div> 
+</div>  
+
 <!-- ========================================================= -->
-<!-- 9. ELECTRICAL (LIGHTS & SMOKE ALARM) -->
+<!-- 9. ELECTRICAL -->
 <!-- ========================================================= -->
 
 <div class="room-card">
 
-    <div class="section-title">
-        <span>9. Electrical (Lights & Smoke Alarm)</span>
+    <div class="section-header">
+
+        <span>9. Electrical</span>
+
     </div>
 
-    <div class="grid2">
+    <div class="section-body">
 
-        <!-- LIGHT FITTINGS -->
+        <div class="grid-2">
 
-        <div class="field">
+            <!-- LIGHT FITTINGS -->
 
-            <label><strong>Light Fittings</strong></label>
+            <div>
 
-            <div class="checkbox-grid">
+                <h3>💡 Light Fittings</h3>
 
-                <label>
-                    <input type="checkbox">
-                    Working
-                </label>
+                <div class="checkbox-grid">
 
-                <label>
-                    <input type="checkbox">
-                    Not Working
-                </label>
+                    <label>
+                        <input type="checkbox">
+                        Working
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Not Working
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- SMOKE ALARM -->
+
+            <div>
+
+                <h3>🚨 Smoke Alarm</h3>
+
+                <div style="display:flex;gap:10px;">
+
+                    <button
+                        type="button"
+                        id="smokeYes"
+                        class="btn btn-green active">
+
+                        Yes
+
+                    </button>
+
+                    <button
+                        type="button"
+                        id="smokeNo"
+                        class="btn btn-red">
+
+                        No
+
+                    </button>
+
+                </div>
 
             </div>
 
         </div>
 
-        <!-- SMOKE ALARM -->
+        <br>
 
-        <div class="field">
+        <div class="grid-2">
 
-            <label><strong>Smoke Alarm</strong></label>
+            <div class="field">
 
-            <div style="display:flex;gap:10px;">
+                <label>Comments</label>
 
-                <button
-                    type="button"
-                    id="smokeYes"
-                    class="yes-btn active">
-                    Yes
-                </button>
+                <textarea
+                    placeholder="Enter comments..."></textarea>
 
-                <button
-                    type="button"
-                    id="smokeNo"
-                    class="no-btn">
-                    No
-                </button>
+            </div>
+
+            <div class="field">
+
+                <label>Photos</label>
+
+                <div class="photo-buttons">
+
+                    <button class="btn">
+                        📷 Camera
+                    </button>
+
+                    <button class="btn">
+                        📁 Import
+                    </button>
+
+                    <button class="btn">
+                        🖼 Review
+                    </button>
+
+                </div>
 
             </div>
 
@@ -969,60 +1032,48 @@ Reason No Access
 
     </div>
 
-    <br>
-
-    <div class="grid2">
-
-        <div class="field">
-
-            <label>Comments</label>
-
-            <textarea
-                rows="4"
-                placeholder="Enter comments..."></textarea>
-
-        </div>
-
-        <div class="field">
-
-            <label>Photos</label>
-
-            <div class="photo-buttons">
-
-                <button
-                    type="button"
-                    class="action-btn">
-                    📷 Camera
-                </button>
-
-                <button
-                    type="button"
-                    class="action-btn">
-                    📁 Import
-                </button>
-
-                <button
-                    type="button"
-                    class="action-btn">
-                    🖼 Review
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div> 
+</div>  
 <script>
 //======================================================
-// BUTTON COLOURS
+// BEDROOM V3 - BUTTONS & INTERACTION
 //======================================================
 
-function activateButton(btn){
-    const group = btn.parentElement.querySelectorAll("button");
-    group.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
+function setButtonGroup(group, activeButton){
+
+    group.querySelectorAll(".btn").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    activeButton.classList.add("active");
+
+}
+
+//======================================================
+// ACCESS YES / NO
+//======================================================
+
+const accessYes=document.getElementById("accessYes");
+const accessNo=document.getElementById("accessNo");
+const accessReason=document.getElementById("accessReason");
+
+if(accessYes && accessNo){
+
+    accessYes.onclick=function(){
+
+        setButtonGroup(this.parentElement,this);
+
+        accessReason.classList.add("hidden");
+
+    };
+
+    accessNo.onclick=function(){
+
+        setButtonGroup(this.parentElement,this);
+
+        accessReason.classList.remove("hidden");
+
+    };
+
 }
 
 //======================================================
@@ -1033,6 +1084,7 @@ const doorNA=document.getElementById("doorNA");
 const doorSection=document.getElementById("doorSection");
 
 if(doorNA){
+
 doorNA.onclick=function(){
 
 this.classList.toggle("active");
@@ -1042,6 +1094,7 @@ this.classList.contains("active")
 ?"none":"block";
 
 };
+
 }
 
 //======================================================
@@ -1052,6 +1105,7 @@ const windowNA=document.getElementById("windowNA");
 const windowSection=document.getElementById("windowSection");
 
 if(windowNA){
+
 windowNA.onclick=function(){
 
 this.classList.toggle("active");
@@ -1061,6 +1115,7 @@ this.classList.contains("active")
 ?"none":"block";
 
 };
+
 }
 
 //======================================================
@@ -1071,6 +1126,7 @@ const wardrobeNA=document.getElementById("wardrobeNA");
 const wardrobeSection=document.getElementById("wardrobeSection");
 
 if(wardrobeNA){
+
 wardrobeNA.onclick=function(){
 
 this.classList.toggle("active");
@@ -1080,6 +1136,7 @@ this.classList.contains("active")
 ?"none":"block";
 
 };
+
 }
 
 //======================================================
@@ -1090,6 +1147,7 @@ const heatingNone=document.getElementById("heatingNone");
 const heatingSection=document.getElementById("heatingSection");
 
 if(heatingNone){
+
 heatingNone.onclick=function(){
 
 this.classList.toggle("active");
@@ -1097,37 +1155,6 @@ this.classList.toggle("active");
 heatingSection.style.display=
 this.classList.contains("active")
 ?"none":"block";
-
-};
-}
-
-//======================================================
-// ACCESS YES / NO
-//======================================================
-
-const accessYes=document.getElementById("accessYes");
-const accessNo=document.getElementById("accessNo");
-const noReason=document.getElementById("noAccessReason");
-
-if(accessYes){
-
-accessYes.onclick=function(){
-
-activateButton(this);
-
-noReason.style.display="none";
-
-};
-
-}
-
-if(accessNo){
-
-accessNo.onclick=function(){
-
-activateButton(this);
-
-noReason.style.display="block";
 
 };
 
@@ -1140,23 +1167,144 @@ noReason.style.display="block";
 const smokeYes=document.getElementById("smokeYes");
 const smokeNo=document.getElementById("smokeNo");
 
-if(smokeYes){
+if(smokeYes && smokeNo){
 
 smokeYes.onclick=function(){
 
-activateButton(this);
+setButtonGroup(this.parentElement,this);
 
 };
-
-}
-
-if(smokeNo){
 
 smokeNo.onclick=function(){
 
-activateButton(this);
+setButtonGroup(this.parentElement,this);
 
 };
 
 }
-</script> 
+
+</script>  
+/* ==========================================================
+   BEDROOM V3 ANIMATIONS
+========================================================== */
+
+.section-body{
+
+    transition:all .30s ease;
+
+}
+
+.btn{
+
+    transition:all .25s ease;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+
+}
+
+.btn-green.active{
+
+    background:#28a745;
+
+    color:#fff;
+
+}
+
+.btn-red.active{
+
+    background:#dc3545;
+
+    color:#fff;
+
+}
+
+.btn-gold.active{
+
+    background:#f4b400;
+
+    color:#fff;
+
+}
+
+.checkbox-grid label{
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    transition:.2s;
+
+}
+
+.checkbox-grid label:hover{
+
+    background:#eef5ff;
+
+}
+
+.room-card{
+
+    transition:.25s;
+
+}
+
+.room-card:hover{
+
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+}
+
+.section-header{
+
+    user-select:none;
+
+}
+
+textarea{
+
+    transition:.25s;
+
+}
+
+textarea:focus{
+
+    border:1px solid #0b63b6;
+
+    box-shadow:0 0 8px rgba(11,99,182,.20);
+
+    outline:none;
+
+}
+
+select:focus{
+
+    border:1px solid #0b63b6;
+
+    box-shadow:0 0 8px rgba(11,99,182,.20);
+
+    outline:none;
+
+}
+
+input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    cursor:pointer;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+} 
+
