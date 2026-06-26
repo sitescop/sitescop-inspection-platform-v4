@@ -50,9 +50,10 @@ async function generateBathrooms() {
 
         });
 
-        container.appendChild(accordion);
-    }
+       container.appendChild(accordion);
+}
 
+initialiseDynamicRooms();
 }
 async function generateBedrooms() {
 
@@ -120,3 +121,50 @@ if (bedroomInput) {
     bedroomInput.addEventListener("change", generateBedrooms);
 }
 });
+function initialiseDynamicRooms() {
+
+    // Accordion headings
+    document.querySelectorAll(".accordion-header").forEach(header => {
+
+        if (header.dataset.initialised) return;
+
+        header.dataset.initialised = "true";
+
+        header.addEventListener("click", function () {
+
+            const content = this.nextElementSibling;
+
+            if (!content) return;
+
+            content.style.display =
+                content.style.display === "block"
+                ? "none"
+                : "block";
+
+        });
+
+    });
+
+
+    // Bathroom fixture checkboxes
+    document.querySelectorAll(".fixture-toggle").forEach(box => {
+
+        if (box.dataset.initialised) return;
+
+        box.dataset.initialised = "true";
+
+        box.addEventListener("change", function () {
+
+            const target =
+                document.getElementById(this.dataset.target);
+
+            if (!target) return;
+
+            target.style.display =
+                this.checked ? "block" : "none";
+
+        });
+
+    });
+
+}
