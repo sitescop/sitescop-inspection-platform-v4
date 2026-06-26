@@ -16,7 +16,7 @@ async function generateBathrooms() {
 
     if (count === 0) return;
 
-    const response = await fetch("bathroom.html");
+    const response = await fetch("./bathroom.html");
     const template = await response.text();
 
     for (let i = 1; i <= count; i++) {
@@ -69,7 +69,7 @@ async function generateBedrooms() {
 
     if (count === 0) return;
 
-    const response = await fetch("bedroom.html");
+    const response = await fetch("./bedroom.html");
     const template = await response.text();
 
     for (let i = 1; i <= count; i++) {
