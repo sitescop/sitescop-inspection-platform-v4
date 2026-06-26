@@ -1,27 +1,20 @@
 // ==========================================
 // SiteScop V4 - Room Generator
-// Version 1.0
 // ==========================================
 
-// Generate Bathroom Accordions
 async function generateBathrooms() {
 
     const bathroomInput = document.getElementById("bathroomCount");
-
     if (!bathroomInput) return;
 
     const count = parseInt(bathroomInput.value) || 0;
 
     const container = document.getElementById("bathroomContainer");
-
     if (!container) return;
 
     container.innerHTML = "";
 
-    if (count === 0) {
-        container.innerHTML = "<p>No bathrooms selected.</p>";
-        return;
-    }
+    if (count === 0) return;
 
     const response = await fetch("bathroom.html");
     const template = await response.text();
@@ -36,25 +29,38 @@ async function generateBathrooms() {
                 Bathroom ${i}
             </div>
 
-            <div class="accordion-content">
+            <div class="accordion-content" style="display:none;">
                 ${template}
             </div>
         `;
 
-        container.appendChild(accordion);
+        const header = accordion.querySelector(".accordion-header");
+        const content = accordion.querySelector(".accordion-content");
 
+        header.addEventListener("click", () => {
+
+            document.querySelectorAll("#bathroomContainer .accordion-content")
+                .forEach(c => c.style.display = "none");
+
+            document.querySelectorAll("#bathroomContainer .accordion-header")
+                .forEach(h => h.classList.remove("active"));
+
+            content.style.display = "block";
+            header.classList.add("active");
+
+        });
+
+        container.appendChild(accordion);
     }
 
 }
-// Run when Bathroom count changes
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const bathroomInput = document.getElementById("bathroomCount");
 
     if (bathroomInput) {
-
         bathroomInput.addEventListener("change", generateBathrooms);
-
     }
 
 });
