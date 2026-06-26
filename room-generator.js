@@ -46,3 +46,15 @@ async function generateBathrooms() {
     }
 
 }
+// Run when Bathroom count changes
+document.addEventListener("DOMContentLoaded", () => {
+
+    const bathroomInput = document.getElementById("bathroomCount");
+
+    if (bathroomInput) {
+
+        bathroomInput.addEventListener("change", generateBathrooms);
+
+    }
+
+});
