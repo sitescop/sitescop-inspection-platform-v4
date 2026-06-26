@@ -6,7 +6,7 @@
 // Generate Bathroom Accordions
 async function generateBathrooms() {
 
-    const bathroomInput = document.querySelector('label + input[type="number"]');
+    const bathroomInput = document.getElementById("bathroomCount");
 
     if (!bathroomInput) return;
 
