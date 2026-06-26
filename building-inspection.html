@@ -1391,6 +1391,16 @@ document.querySelectorAll("button")
     });
 
 });
+    // Load Bathroom Module
+async function loadBathroomModule() {
+
+    const response = await fetch("bathroom.html");
+    const html = await response.text();
+
+    document.getElementById("bathroomContainer").innerHTML = html;
+}
+
+loadBathroomModule();
 </script>
 
 </body>
