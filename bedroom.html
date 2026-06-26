@@ -622,21 +622,29 @@
 
 <script>
 
-// Open / Close Accordions
-
 document.querySelectorAll(".accordion-header").forEach(header=>{
 
     header.addEventListener("click",function(){
 
-        const content=this.nextElementSibling;
+        const current=this.nextElementSibling;
 
-        if(content.style.display==="block"){
+        document.querySelectorAll(".accordion-content").forEach(section=>{
 
-            content.style.display="none";
+            if(section!==current){
+
+                section.style.display="none";
+
+            }
+
+        });
+
+        if(current.style.display==="block"){
+
+            current.style.display="none";
 
         }else{
 
-            content.style.display="block";
+            current.style.display="block";
 
         }
 
@@ -644,12 +652,10 @@ document.querySelectorAll(".accordion-header").forEach(header=>{
 
 });
 
-// Default accordion state
+document.querySelectorAll(".accordion-content").forEach(section=>{
 
-document.querySelectorAll(".accordion-content").forEach(content=>{
-
-    content.style.display="none";
+    section.style.display="none";
 
 });
 
-</script> 
+</script>
