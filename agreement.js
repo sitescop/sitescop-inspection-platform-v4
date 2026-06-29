@@ -176,7 +176,7 @@ if(!hasSignature){
         .style.display = "none";
 
     const thankYou =
-        document.getElementById("thankYouMessage");
+       document.getElementById("successMessage");
 
     if (thankYou) {
 
