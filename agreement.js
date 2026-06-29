@@ -183,3 +183,135 @@ function submitAgreement() {
     console.log("Agreement Submitted");
 
 }
+let canvas;
+let ctx;
+
+let drawing = false;
+
+let hasSignature = false;
+
+function initialiseSignature(){
+
+    canvas = document.getElementById("signatureCanvas");
+
+    if(!canvas) return;
+
+    ctx = canvas.getContext("2d");
+
+    resizeCanvas();
+
+    window.addEventListener("resize",resizeCanvas);
+
+    canvas.addEventListener("mousedown",startDraw);
+
+    canvas.addEventListener("mousemove",draw);
+
+    canvas.addEventListener("mouseup",stopDraw);
+
+    canvas.addEventListener("mouseleave",stopDraw);
+
+    canvas.addEventListener("touchstart",startDraw);
+
+    canvas.addEventListener("touchmove",draw);
+
+    canvas.addEventListener("touchend",stopDraw);
+
+    document
+        .querySelector(".secondary-btn")
+        .addEventListener("click",clearSignature);
+
+}
+
+function resizeCanvas(){
+
+    const rect=canvas.getBoundingClientRect();
+
+    canvas.width=rect.width;
+
+    canvas.height=rect.height;
+
+}
+
+function getPosition(e){
+
+    const rect=canvas.getBoundingClientRect();
+
+    if(e.touches){
+
+        return{
+
+            x:e.touches[0].clientX-rect.left,
+
+            y:e.touches[0].clientY-rect.top
+
+        };
+
+    }
+
+    return{
+
+        x:e.offsetX,
+
+        y:e.offsetY
+
+    };
+
+}
+
+function startDraw(e){
+
+    drawing=true;
+
+    const p=getPosition(e);
+
+    ctx.beginPath();
+
+    ctx.moveTo(p.x,p.y);
+
+}
+
+function draw(e){
+
+    if(!drawing) return;
+
+    e.preventDefault();
+
+    const p=getPosition(e);
+
+    ctx.lineWidth=2;
+
+    ctx.lineCap="round";
+
+    ctx.strokeStyle="#000";
+
+    ctx.lineTo(p.x,p.y);
+
+    ctx.stroke();
+
+    hasSignature=true;
+
+}
+
+function stopDraw(){
+
+    drawing=false;
+
+}
+
+function clearSignature(){
+
+    ctx.clearRect(
+
+        0,
+
+        0,
+
+        canvas.width,
+
+        canvas.height
+
+    );
+
+    hasSignature=false;
+
+}
