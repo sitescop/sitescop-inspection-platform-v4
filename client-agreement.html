@@ -3,576 +3,699 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>SiteScop Client Agreement</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="agreement.css">
+<title>SiteScop Inspection Agreement</title>
+
+<link rel="stylesheet" href="agreement.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="agreement-container">
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+<!-- ===========================
+HEADER
+=========================== -->
 
-    <header class="header">
+<header class="agreement-header">
 
-        <div class="logo">
+<div class="logo-section">
 
-            <h1>SiteScop</h1>
+<h1>SiteScop</h1>
 
-            <p>Professional Building & Pest Inspection Agreement</p>
-
-        </div>
-
-    </header>
-
-    <!-- =========================
-         PROGRESS
-    ========================== -->
-
-    <section class="progress-section">
-
-        <div class="progress-header">
-
-            <span>Agreement Progress</span>
-
-            <span id="progressText">0% Complete</span>
-
-        </div>
-
-        <div class="progress-bar">
-
-            <div
-                id="progressFill"
-                class="progress-fill">
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         CLIENT DETAILS
-    ========================== -->
-
-    <section class="card">
-
-        <h2>Client Details</h2>
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <input
-                    id="firstName"
-                    type="text"
-                    required>
-
-                <label for="firstName">
-
-                    First Name *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <input
-                    id="lastName"
-                    type="text"
-                    required>
-
-                <label for="lastName">
-
-                    Last Name *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <input
-                    id="mobile"
-                    type="tel"
-                    required>
-
-                <label for="mobile">
-
-                    Mobile *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <input
-                    id="email"
-                    type="email"
-                    required>
-
-                <label for="email">
-
-                    Email *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <select
-                    id="clientType"
-                    required>
-
-                    <option value=""></option>
-
-                    <option>Purchaser</option>
-
-                    <option>Owner</option>
-
-                    <option>Vendor</option>
-
-                    <option>Real Estate Agent</option>
-
-                    <option>Solicitor</option>
-
-                    <option>Property Manager</option>
-
-                    <option>Other</option>
-
-                </select>
-
-                <label for="clientType">
-
-                    Client Type *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         PROPERTY DETAILS
-    ========================== -->
-
-    <section class="card">
-
-        <h2>Property Details</h2>
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <input
-                    id="address"
-                    type="text"
-                    required>
-
-                <label for="address">
-
-                    Property Address *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <input
-                    id="suburb"
-                    type="text"
-                    required>
-
-                <label for="suburb">
-
-                    Suburb *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <select
-                    id="state"
-                    required>
-
-                    <option value=""></option>
-
-                    <option>NSW</option>
-                    <option>QLD</option>
-                    <option>VIC</option>
-                    <option>SA</option>
-                    <option>WA</option>
-                    <option>TAS</option>
-                    <option>ACT</option>
-                    <option>NT</option>
-
-                </select>
-
-                <label for="state">
-
-                    State *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <input
-                    id="postcode"
-                    type="text"
-                    maxlength="4"
-                    required>
-
-                <label for="postcode">
-
-                    Postcode *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div> 
-                        <div class="form-group">
-
-                <select
-                    id="propertyType"
-                    required>
-
-                    <option value=""></option>
-
-                    <option>House</option>
-
-                    <option>Unit / Apartment</option>
-
-                    <option>Townhouse</option>
-
-                    <option>Duplex</option>
-
-                    <option>Villa</option>
-
-                    <option>Commercial</option>
-
-                    <option>Industrial</option>
-
-                    <option>Other</option>
-
-                </select>
-
-                <label for="propertyType">
-
-                    Property Type *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <select
-                    id="inspectionType"
-                    required>
-
-                    <option value=""></option>
-
-                    <option>Building Inspection</option>
-
-                    <option>Pest Inspection</option>
-
-                    <option>Building & Pest Inspection</option>
-
-                    <option>Pre-Purchase Inspection</option>
-
-                    <option>Practical Completion Inspection</option>
-
-                    <option>Stage Inspection</option>
-
-                </select>
-
-                <label for="inspectionType">
-
-                    Inspection Requested *
-
-                </label>
-
-                <small class="error"></small>
-
-            </div>
-
-            <div class="form-group">
-
-                <textarea
-                    id="comments"
-                    rows="5"></textarea>
-
-                <label for="comments">
-
-                    Comments
-
-                </label>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ===================================
-         INSPECTION AGREEMENT
-    ==================================== -->
-
-    <section class="card">
-
-        <h2>Inspection Agreement</h2>
-
-        <p class="card-intro">
-
-            Please review the following sections before signing
-            this agreement.
-
-        </p>
-
-        <!-- Scope -->
-
-        <button class="accordion">
-
-            Scope
-
-            <span>+</span>
-
-        </button>
-
-        <div class="panel">
-
-            <p>
-
-                This inspection will be carried out in accordance
-                with Australian Standards and SiteScop inspection
-                procedures. The inspection is visual and
-                non-invasive unless otherwise agreed.
-
-            </p>
-
-        </div>
-
-        <!-- Limitations -->
-
-        <button class="accordion">
-
-            Inspection Limitations
-
-            <span>+</span>
-
-        </button>
-
-        <div class="panel">
-
-            <p>
-
-                Areas that are inaccessible, obstructed,
-                concealed or unsafe cannot be inspected.
-
-            </p>
-
-        </div>
-
-        <!-- Terms -->
-
-        <button class="accordion">
-
-            Terms & Conditions
-
-            <span>+</span>
-
-        </button>
-
-        <div class="panel">
-
-            <p>
-
-                The report is prepared solely for the named client
-                and must not be relied upon by any third party
-                without written permission.
-
-            </p>
-
-        </div>
-
-        <!-- Privacy -->
-
-        <button class="accordion">
-
-            Privacy Policy
-
-            <span>+</span>
-
-        </button>
-
-        <div class="panel">
-
-            <p>
-
-                SiteScop collects and stores your information only
-                for the purpose of providing inspection services
-                and communicating with you regarding your booking.
-
-            </p>
-
-        </div>
-
-        <!-- Declaration -->
-
-        <button class="accordion">
-
-            Client Declaration
-
-            <span>+</span>
-
-        </button>
-
-        <div class="panel">
-
-            <p>
-
-                I confirm that I have read and understood this
-                agreement and authorise SiteScop to carry out the
-                requested inspection.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ===================================
-         SIGNATURE
-    ==================================== -->
-
-    <section class="card">
-
-        <h2>Client Signature</h2>
-
-        <p class="card-intro">
-
-            Please sign below to confirm your agreement.
-
-        </p>
-
-       <div class="signature-container">
-
-    <canvas
-        id="signatureCanvas"
-        class="signature-canvas">
-    </canvas>
+<p>Professional Building & Pest Inspection</p>
 
 </div>
 
-        <div class="button-row">
+<div class="security-badge">
 
-            <button
-                type="button"
-                class="secondary-btn">
+🔒 Secure Electronic Agreement
 
-                Clear Signature
+</div>
 
-            </button> 
-                        <button
-                type="button"
-                id="submitAgreement"
-                class="submit-btn">
+</header>
 
-                Submit Agreement
+<!-- ===========================
+WELCOME
+=========================== -->
 
-            </button>
+<section class="welcome-card">
 
-        </div>
+<div class="welcome-icon">
 
-    </section>
+👤
 
-    <!-- ===================================
-         THANK YOU MESSAGE
-    ==================================== -->
+</div>
 
-    <section
-        id="thankYouMessage"
-        class="card success-card"
-        style="display:none;">
+<div class="welcome-content">
 
-        <h2>Thank You</h2>
+<h2>Welcome to SiteScop</h2>
 
-        <p>
+<p>
 
-            Your Inspection Agreement has been received successfully.
+Thank you for choosing SiteScop Pty Ltd.
 
-        </p>
+</p>
 
-        <p>
+<p>
 
-            A SiteScop representative will contact you shortly
-            to arrange your inspection date, inspection time,
-            access details and payment.
+Please complete and sign this Inspection Agreement.
 
-        </p>
+</p>
 
-        <p>
+</div>
 
-            <strong>No booking is confirmed at this stage.</strong>
+</section>
 
-        </p>
+<!-- ===========================
+PROGRESS
+=========================== -->
 
-    </section>
+<section class="progress-card">
 
-    <!-- ===================================
-         FOOTER
-    ==================================== -->
+<div class="progress-item active">
 
-    <footer class="footer">
+<div class="progress-icon">
 
-        <p>
+👤
 
-            © 2026 SiteScop Pty Ltd
+</div>
 
-        </p>
+<h4>Your Details</h4>
 
-        <p>
+<p>Tell us who you are</p>
 
-            Professional Building & Pest Inspection Management Platform
+</div>
 
-        </p>
+<div class="progress-line"></div>
 
-    </footer>
+<div class="progress-item">
+
+<div class="progress-icon">
+
+🏠
+
+</div>
+
+<h4>Property Details</h4>
+
+<p>Tell us about the property</p>
+
+</div>
+
+<div class="progress-line"></div>
+
+<div class="progress-item">
+
+<div class="progress-icon">
+
+📝
+
+</div>
+
+<h4>Agreement & Signature</h4>
+
+<p>Review and sign</p>
+
+</div>
+
+</section>
+
+<!-- ===========================
+CLIENT DETAILS
+=========================== -->
+
+<section class="card">
+
+<div class="section-title">
+
+<div class="section-icon">
+
+👤
+
+</div>
+
+<div>
+
+<h2>Client Details</h2>
+
+<p>Please provide the details of the person requesting the inspection.</p>
+
+</div>
+
+</div>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<input
+type="text"
+id="firstName"
+required>
+
+<label>First Name *</label>
+
+</div>
+
+<div class="form-group">
+
+<input
+type="text"
+id="lastName"
+required>
+
+<label>Last Name *</label>
+
+</div>
+
+<div class="form-group">
+
+<input
+type="tel"
+id="mobile"
+required>
+
+<label>Mobile Number *</label>
+
+</div>
+
+<div class="form-group">
+
+<input
+type="email"
+id="email"
+required>
+
+<label>Email Address *</label>
+
+</div>
+
+<div class="form-group full-width">
+
+<select
+id="clientType"
+required>
+
+<option value=""></option>
+
+<option>Owner</option>
+
+<option>Purchaser</option>
+
+<option>Real Estate Agent</option>
+
+<option>Solicitor</option>
+
+<option>Other</option>
+
+</select>
+
+<label>Client Type *</label>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+PROPERTY DETAILS
+=========================== -->
+
+<section class="card">
+
+<div class="section-title">
+
+<div class="section-icon">
+
+🏠
+
+</div>
+
+<div>
+
+<h2>Property Details</h2>
+
+<p>Tell us about the property you would like inspected.</p>
+
+</div>
+
+</div>
+
+<div class="form-grid">
+
+<div class="form-group full-width">
+
+<input
+type="text"
+id="propertyAddress"
+required>
+
+<label>Property Address *</label>
+
+</div>
+
+<div class="form-group">
+
+<input
+type="text"
+id="suburb"
+required>
+
+<label>Suburb *</label>
+
+</div>
+
+<div class="form-group">
+
+<select
+id="state"
+required>
+
+<option value=""></option>
+
+<option>NSW</option>
+
+<option>QLD</option>
+
+<option>VIC</option>
+
+<option>SA</option>
+
+<option>WA</option>
+
+<option>TAS</option>
+
+<option>ACT</option>
+
+<option>NT</option>
+
+</select>
+
+<label>State *</label>
+
+</div>
+
+<div class="form-group">
+
+<input
+type="text"
+id="postcode"
+maxlength="4"
+required>
+
+<label>Postcode *</label>
+
+</div>
+
+<div class="form-group">
+
+<select
+id="propertyType"
+required>
+
+<option value=""></option>
+
+<option>House</option>
+
+<option>Unit / Apartment</option>
+
+<option>Townhouse</option>
+
+<option>Villa</option>
+
+<option>Duplex</option>
+
+<option>Commercial</option>
+
+<option>Industrial</option>
+
+<option>Other</option>
+
+</select>
+
+<label>Property Type *</label>
+
+</div>
+
+<div class="form-group">
+
+<select
+id="inspectionType"
+required>
+
+<option value=""></option>
+
+<option value="building">
+
+Building Inspection
+
+</option>
+
+<option value="pest">
+
+Pest Inspection
+
+</option>
+
+<option value="combined">
+
+Building & Pest Inspection
+
+</option>
+
+</select>
+
+<label>Inspection Requested *</label>
+
+</div>
+
+<div class="form-group full-width">
+
+<textarea
+id="comments"
+rows="4"></textarea>
+
+<label>Comments (Optional)</label>
+
+</div>
+
+</div>
+
+</section> 
+<!-- ===========================
+INSPECTION AGREEMENT
+=========================== -->
+
+<section class="card agreement-section">
+
+<div class="section-title">
+
+<div class="section-icon">
+
+📄
+
+</div>
+
+<div>
+
+<h2>Inspection Agreement</h2>
+
+<p>
+
+Please review each section below before signing the agreement.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Scope -->
+
+<div class="accordion-item">
+
+<button class="accordion">
+
+<span>
+
+📋 Scope of Inspection
+
+</span>
+
+<span class="accordion-arrow">
+
++
+
+</span>
+
+</button>
+
+<div class="panel">
+
+<div id="scopeContent">
+
+Loading Scope...
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Inspection Limitations -->
+
+<div class="accordion-item">
+
+<button class="accordion">
+
+<span>
+
+⚠ Inspection Limitations
+
+</span>
+
+<span class="accordion-arrow">
+
++
+
+</span>
+
+</button>
+
+<div class="panel">
+
+<div id="limitationsContent">
+
+Loading Inspection Limitations...
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Terms -->
+
+<div class="accordion-item">
+
+<button class="accordion">
+
+<span>
+
+📑 Terms & Conditions
+
+</span>
+
+<span class="accordion-arrow">
+
++
+
+</span>
+
+</button>
+
+<div class="panel">
+
+<div id="termsContent">
+
+Loading Terms & Conditions...
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Privacy -->
+
+<div class="accordion-item">
+
+<button class="accordion">
+
+<span>
+
+🔒 Privacy Policy
+
+</span>
+
+<span class="accordion-arrow">
+
++
+
+</span>
+
+</button>
+
+<div class="panel">
+
+<div id="privacyContent">
+
+Loading Privacy Policy...
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Declaration -->
+
+<div class="accordion-item">
+
+<button class="accordion">
+
+<span>
+
+✅ Client Declaration
+
+</span>
+
+<span class="accordion-arrow">
+
++
+
+</span>
+
+</button>
+
+<div class="panel">
+
+<div id="declarationContent">
+
+Loading Client Declaration...
+
+</div>
+
+</div>
+
+</div>
+
+</section> 
+    <!-- ===========================
+CLIENT SIGNATURE
+=========================== -->
+
+<section class="card signature-section">
+
+<div class="section-title">
+
+<div class="section-icon">
+
+✍️
+
+</div>
+
+<div>
+
+<h2>Client Signature</h2>
+
+<p>
+
+Please sign below to accept this Inspection Agreement.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="signature-wrapper">
+
+<canvas id="signaturePad"></canvas>
+
+</div>
+
+<div class="signature-actions">
+
+<button
+type="button"
+id="clearSignature"
+class="btn btn-secondary">
+
+Clear Signature
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ===========================
+SUBMIT
+=========================== -->
+
+<section class="card submit-section">
+
+<button
+id="submitAgreement"
+class="btn btn-primary">
+
+Submit Inspection Agreement
+
+</button>
+
+<p class="submit-note">
+
+By submitting this agreement you confirm that all information provided is true and correct.
+
+</p>
+
+</section>
+
+<!-- ===========================
+SUCCESS MESSAGE
+=========================== -->
+
+<section
+id="successMessage"
+class="success-card"
+style="display:none;">
+
+<div class="success-icon">
+
+✅
+
+</div>
+
+<h2>
+
+Thank You
+
+</h2>
+
+<p>
+
+Your Inspection Agreement has been successfully submitted.
+
+</p>
+
+<p>
+
+A member of the SiteScop team will contact you shortly to confirm your inspection booking.
+
+</p>
+
+<div class="reference-box">
+
+Agreement Reference
+
+<br><br>
+
+<strong id="agreementReference">
+
+Pending
+
+</strong>
+
+</div>
+
+</section>
 
 </div>
 
@@ -581,3 +704,4 @@
 </body>
 
 </html>
+    
