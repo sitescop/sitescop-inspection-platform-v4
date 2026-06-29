@@ -310,20 +310,14 @@ function stopDraw(){
 
 }
 
-function clearSignature(){
+function clearSignature() {
 
-    ctx.clearRect(
+    if (!ctx || !canvas) return;
 
-        0,
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        0,
+    ctx.beginPath();
 
-        canvas.width,
-
-        canvas.height
-
-    );
-
-    hasSignature=false;
+    hasSignature = false;
 
 }
