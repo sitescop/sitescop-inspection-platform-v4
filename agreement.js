@@ -226,9 +226,11 @@ function initialiseSignature(){
 
     canvas.addEventListener("touchend",stopDraw);
 
-    document
-        .querySelector(".secondary-btn")
-        .addEventListener("click",clearSignature);
+   const clearButton = document.getElementById("clearSignature");
+
+if (clearButton) {
+    clearButton.addEventListener("click", clearSignature);
+}
 
 }
 
