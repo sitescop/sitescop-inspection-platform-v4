@@ -17,7 +17,9 @@ function initialiseAgreement() {
 
     initialiseValidation();
 
-    initialiseSubmit();
+   initialiseSubmit();
+
+initialiseSignature();
 
 }
 
