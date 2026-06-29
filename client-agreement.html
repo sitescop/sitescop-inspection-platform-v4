@@ -27,12 +27,17 @@
     <section class="progress-section">
 
         <div class="progress-text">
-            Step 1 of 4
+            Step 1 <span id="progressText">
+0% Complete
+</span>of 4
         </div>
 
         <div class="progress-bar">
 
-            <div class="progress-fill"></div>
+            <div class="pr<div
+    class="progress-fill"
+    id="progressFill">
+</div>ogress-fill"></div>
 
         </div>
 
@@ -46,7 +51,15 @@
 
         <div class="form-grid">
 
-            <input type="text" placeholder="First Name">
+            <div class="form-group">
+    <input
+        type="text"
+        id="firstName"
+        required
+    >
+    <label for="firstName">First Name *</label>
+    <small class="error"></small>
+</div>
 
             <input type="text" placeholder="Last Name">
 
