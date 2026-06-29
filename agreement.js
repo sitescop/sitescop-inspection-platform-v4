@@ -154,13 +154,23 @@ function submitAgreement() {
 
     if (!valid) {
 
-        alert(
-            "Please complete all required fields."
-        );
+    alert(
+        "Please complete all required fields."
+    );
 
-        return;
+    return;
 
-    }
+}
+
+if(!hasSignature){
+
+    alert(
+        "Please sign before submitting."
+    );
+
+    return;
+
+}
 
     document.querySelector(".card:last-of-type")
         .style.display = "none";
