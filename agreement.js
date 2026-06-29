@@ -1,9 +1,10 @@
-/*
-==========================================
-SiteScop Client Agreement
-Version 2
-==========================================
-*/
+/*======================================================
+SiteScop V4
+Agreement System
+Part 1
+======================================================*/
+
+let inspectionType = "combined";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -15,13 +16,37 @@ function initialiseAgreement() {
 
     initialiseAccordions();
 
-    initialiseValidation();
+    initialiseInspectionSelector();
 
-   initialiseSubmit();
-
-initialiseSignature();
+    loadLegalDocuments();
 
 }
+
+/*======================================================
+Inspection Type
+======================================================*/
+
+function initialiseInspectionSelector() {
+
+    const selector = document.getElementById("inspectionType");
+
+    if (!selector) return;
+
+    inspectionType = selector.value || "combined";
+
+    selector.addEventListener("change", () => {
+
+        inspectionType = selector.value || "combined";
+
+        loadLegalDocuments();
+
+    });
+
+}
+
+/*======================================================
+Accordion
+======================================================*/
 
 function initialiseAccordions() {
 
@@ -35,17 +60,19 @@ function initialiseAccordions() {
 
             const panel = this.nextElementSibling;
 
+            const icon = this.querySelector(".accordion-icon");
+
             if (panel.style.display === "block") {
 
                 panel.style.display = "none";
 
-                this.querySelector("span").textContent = "+";
+                if (icon) icon.textContent = "+";
 
             } else {
 
                 panel.style.display = "block";
 
-                this.querySelector("span").textContent = "−";
+                if (icon) icon.textContent = "−";
 
             }
 
@@ -55,78 +82,223 @@ function initialiseAccordions() {
 
 }
 
-function initialiseValidation() {
+/*======================================================
+Load Legal Documents
+======================================================*/
 
-    const fields = document.querySelectorAll(
-        "input, select, textarea"
+async function loadLegalDocuments() {
+
+    const folder = "legal/" + inspectionType + "/";
+
+    loadSection(
+        folder + "scope.html",
+        "scopeContent"
     );
 
-    fields.forEach(field => {
+    loadSection(
+        folder + "inspection-limitations.html",
+        "limitationsContent"
+    );
 
-        field.addEventListener("input", updateProgress);
+    loadSection(
+        folder + "terms-conditions.html",
+        "termsContent"
+    );
 
-        field.addEventListener("change", updateProgress);
+    loadSection(
+        folder + "privacy-policy.html",
+        "privacyContent"
+    );
 
-    });
-
-    updateProgress();
+    loadSection(
+        folder + "client-declaration.html",
+        "declarationContent"
+    );
 
 }
 
-function updateProgress() {
+/*======================================================
+Load Individual Section
+======================================================*/
 
-    const fields = document.querySelectorAll(
-        "input, select, textarea"
-    );
+async function loadSection(file, targetId) {
 
-    let completed = 0;
+    const target = document.getElementById(targetId);
 
-    fields.forEach(field => {
+    if (!target) return;
 
-        if (field.value.trim() !== "") {
+    try {
 
-            completed++;
+        const response = await fetch(file);
 
-            field.classList.add("valid");
+        if (!response.ok) {
 
-            field.classList.remove("invalid");
+            target.innerHTML = `
+                <p>
+                    Unable to load document.
+                </p>
+            `;
 
-        } else {
-
-            field.classList.remove("valid");
-
-            field.classList.add("invalid");
+            return;
 
         }
 
-    });
+        target.innerHTML = await response.text();
 
-    const percentage = Math.round(
-        (completed / fields.length) * 100
-    );
+    }
 
-    const progressFill =
-        document.getElementById("progressFill");
+    catch {
 
-    const progressText =
-        document.getElementById("progressText");
+        target.innerHTML = `
+            <p>
+                Unable to load document.
+            </p>
+        `;
 
-    if (progressFill)
-        progressFill.style.width = percentage + "%";
+    }
 
-    if (progressText)
-        progressText.textContent =
-            percentage + "% Complete";
+}   
+/*======================================================
+Signature Pad
+Part 2
+======================================================*/
+
+let canvas;
+let ctx;
+
+let drawing = false;
+let hasSignature = false;
+
+/*======================================================
+Initialise Signature
+======================================================*/
+
+initialiseSignature();
+
+function initialiseSignature() {
+
+    canvas = document.getElementById("signatureCanvas");
+
+    if (!canvas) return;
+
+    ctx = canvas.getContext("2d");
+
+    resizeCanvas();
+
+    window.addEventListener("resize", resizeCanvas);
+
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseleave", stopDrawing);
+
+    canvas.addEventListener("touchstart", startDrawing);
+    canvas.addEventListener("touchmove", draw);
+    canvas.addEventListener("touchend", stopDrawing);
+
+    const clearButton = document.getElementById("clearSignature");
+
+    if (clearButton) {
+
+        clearButton.addEventListener("click", clearSignature);
+
+    }
 
 }
 
+/*======================================================
+Resize Canvas
+======================================================*/
+
+function resizeCanvas() {
+
+    const rect = canvas.getBoundingClientRect();
+
+    canvas.width = rect.width;
+
+    canvas.height = rect.height;
+
+    ctx.lineWidth = 2.5;
+
+    ctx.lineCap = "round";
+
+    ctx.lineJoin = "round";
+
+    ctx.strokeStyle = "#222";
+
+}
+
+/*======================================================
+Pointer Position
+======================================================*/
+
+function getPosition(event) {
+
+    const rect = canvas.getBoundingClientRect();
+
+    if (event.touches && event.touches.length > 0) {
+
+        return {
+
+            x: event.touches[0].clientX - rect.left,
+
+            y: event.t       
+            /*======================================================
+Validation & Submit
+Part 3
+======================================================*/
+
+function initialiseValidation() {
+
+    const fields = document.querySelectorAll(
+
+        "input[required], select[required], textarea[required]"
+
+    );
+
+    fields.forEach(field => {
+
+        field.addEventListener("input", validateField);
+
+        field.addEventListener("change", validateField);
+
+    });
+
+}
+
+function validateField(event) {
+
+    const field = event.target;
+
+    if (field.value.trim() === "") {
+
+        field.classList.remove("valid");
+
+        field.classList.add("invalid");
+
+    }
+
+    else {
+
+        field.classList.remove("invalid");
+
+        field.classList.add("valid");
+
+    }
+
+}
+
+/*======================================================
+Submit
+======================================================*/
+
+initialiseSubmit();
+
 function initialiseSubmit() {
 
-    const button =
-        document.getElementById("submitAgreement");
+    const button = document.getElementById("submitAgreement");
 
-    if (!button)
-        return;
+    if (!button) return;
 
     button.addEventListener("click", submitAgreement);
 
@@ -134,13 +306,15 @@ function initialiseSubmit() {
 
 function submitAgreement() {
 
-    const required = document.querySelectorAll(
-        "input[required], select[required]"
-    );
-
     let valid = true;
 
-    required.forEach(field => {
+    const requiredFields = document.querySelectorAll(
+
+        "input[required], select[required], textarea[required]"
+
+    );
+
+    requiredFields.forEach(field => {
 
         if (field.value.trim() === "") {
 
@@ -150,174 +324,188 @@ function submitAgreement() {
 
         }
 
+        else {
+
+            field.classList.remove("invalid");
+
+            field.classList.add("valid");
+
+        }
+
     });
+
+    if (!hasSignature) {
+
+        alert("Please sign the Inspection Agreement before submitting.");
+
+        return;
+
+    }
 
     if (!valid) {
 
-    alert(
-        "Please complete all required fields."
-    );
+        alert("Please complete all required fields.");
 
-    return;
+        return;
 
-}
+    }
 
-if(!hasSignature){
+    const agreementId = generateAgreementID();
 
-    alert(
-        "Please sign before submitting."
-    );
-
-    return;
+    showSuccess(agreementId);
 
 }
 
-    document.querySelector(".card:last-of-type")
-        .style.display = "none";
+/*======================================================
+Agreement ID
+======================================================*/
 
-    const thankYou =
-       document.getElementById("successMessage");
+function generateAgreementID() {
 
-    if (thankYou) {
+    const now = new Date();
 
-        thankYou.style.display = "block";
+    const year = now.getFullYear();
 
-        thankYou.scrollIntoView({
+    const random = Math.floor(
 
-            behavior: "smooth"
+        100000 + Math.random() * 900000
+
+    );
+
+    return `SSA-${year}-${random}`;
+
+}
+        /*======================================================
+Success Screen
+Part 4
+======================================================*/
+
+function showSuccess(agreementId) {
+
+    const formCards = document.querySelectorAll(".card");
+
+    formCards.forEach(card => {
+
+        card.style.display = "none";
+
+    });
+
+    const success = document.getElementById("successMessage");
+
+    if (!success) {
+
+        alert("Agreement submitted successfully.");
+
+        return;
+
+    }
+
+    success.style.display = "block";
+
+    const reference = document.getElementById("agreementReference");
+
+    if (reference) {
+
+        reference.textContent = agreementId;
+
+    }
+
+    success.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+}
+
+/*======================================================
+Accordion Animation
+======================================================*/
+
+document.querySelectorAll(".accordion").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const panel = this.nextElementSibling;
+
+        const icon = this.querySelector(".accordion-icon");
+
+        if (panel.style.maxHeight) {
+
+            panel.style.maxHeight = null;
+
+            if (icon) icon.textContent = "+";
+
+        } else {
+
+            panel.style.maxHeight = panel.scrollHeight + "px";
+
+            if (icon) icon.textContent = "−";
+
+        }
+
+    });
+
+});
+
+/*======================================================
+Utilities
+======================================================*/
+
+function getSignatureImage() {
+
+    if (!canvas) return null;
+
+    return canvas.toDataURL("image/png");
+
+}
+
+function resetAgreement() {
+
+    document
+        .querySelectorAll("input, textarea")
+        .forEach(field => {
+
+            field.value = "";
+
+            field.classList.remove("valid");
+
+            field.classList.remove("invalid");
 
         });
 
-    }
+    document
+        .querySelectorAll("select")
+        .forEach(select => {
 
-    console.log("Agreement Submitted");
+            select.selectedIndex = 0;
 
-}
-let canvas;
-let ctx;
+            select.classList.remove("valid");
 
-let drawing = false;
+            select.classList.remove("invalid");
 
-let hasSignature = false;
+        });
 
-function initialiseSignature(){
-
-    canvas = document.getElementById("signatureCanvas");
-
-    if(!canvas) return;
-
-    ctx = canvas.getContext("2d");
-
-    resizeCanvas();
-
-    window.addEventListener("resize",resizeCanvas);
-
-    canvas.addEventListener("mousedown",startDraw);
-
-    canvas.addEventListener("mousemove",draw);
-
-    canvas.addEventListener("mouseup",stopDraw);
-
-    canvas.addEventListener("mouseleave",stopDraw);
-
-    canvas.addEventListener("touchstart",startDraw);
-
-    canvas.addEventListener("touchmove",draw);
-
-    canvas.addEventListener("touchend",stopDraw);
-
-   const clearButton = document.getElementById("clearSignature");
-
-if (clearButton) {
-    clearButton.addEventListener("click", clearSignature);
-}
+    clearSignature();
 
 }
 
-function resizeCanvas(){
+/*======================================================
+Future Hooks
+======================================================*/
 
-    const rect=canvas.getBoundingClientRect();
+// saveAgreement();
 
-    canvas.width=rect.width;
+// generatePDF();
 
-    canvas.height=rect.height;
+// sendEmail();
 
-}
+// sendSMS();
 
-function getPosition(e){
+// sendWhatsApp();
 
-    const rect=canvas.getBoundingClientRect();
+// uploadCloud();
 
-    if(e.touches){
-
-        return{
-
-            x:e.touches[0].clientX-rect.left,
-
-            y:e.touches[0].clientY-rect.top
-
-        };
-
-    }
-
-    return{
-
-        x:e.offsetX,
-
-        y:e.offsetY
-
-    };
-
-}
-
-function startDraw(e){
-
-    drawing=true;
-
-    const p=getPosition(e);
-
-    ctx.beginPath();
-
-    ctx.moveTo(p.x,p.y);
-
-}
-
-function draw(e){
-
-    if(!drawing) return;
-
-    e.preventDefault();
-
-    const p=getPosition(e);
-
-    ctx.lineWidth=2;
-
-    ctx.lineCap="round";
-
-    ctx.strokeStyle="#000";
-
-    ctx.lineTo(p.x,p.y);
-
-    ctx.stroke();
-
-    hasSignature=true;
-
-}
-
-function stopDraw(){
-
-    drawing=false;
-
-}
-
-function clearSignature() {
-
-    if (!ctx || !canvas) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    ctx.beginPath();
-
-    hasSignature = false;
-
-}
+/*======================================================
+End of SiteScop V4
+======================================================*/
