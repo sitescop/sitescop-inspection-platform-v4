@@ -524,3 +524,38 @@ Responsive
     }
 
 }
+/*=========================================
+Signature Canvas
+=========================================*/
+
+.signature-container{
+
+    width:100%;
+
+    height:240px;
+
+    border:2px dashed #c9d2dc;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    margin-bottom:20px;
+
+}
+
+.signature-canvas{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    cursor:crosshair;
+
+    touch-action:none;
+
+}
