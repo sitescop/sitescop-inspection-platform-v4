@@ -1,75 +1,127 @@
-/*==================================================
-SiteScop Client Agreement
-Version 2
-==================================================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+/*======================================================
+SiteScop V4 Design System
+======================================================*/
 
 :root{
 
-    --primary:#0B5ED7;
-    --primary-dark:#084298;
-    --background:#f5f7fb;
-    --card:#ffffff;
-    --border:#d9dee8;
-    --text:#263238;
-    --text-light:#6b7280;
-    --success:#2e7d32;
-    --error:#d32f2f;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
+    /* Brand Colours */
+
+    --primary:#1F7A5A;
+    --primary-dark:#166246;
+    --primary-light:#EAF7F2;
+
+    --accent:#4CAF50;
+
+    --background:#F5F7F5;
+
+    --white:#FFFFFF;
+
+    --text:#2E3A3F;
+
+    --text-light:#6B7280;
+
+    --border:#E3E8EC;
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+    --radius:16px;
+
+}
+
+/*======================================================
+Reset
+======================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
 
 }
 
 body{
 
     font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
+
+        "Segoe UI",
+
+        Arial,
+
+        Helvetica,
+
+        sans-serif;
 
     background:var(--background);
 
     color:var(--text);
 
-    line-height:1.5;
-
-    padding:40px;
+    line-height:1.6;
 
 }
 
-.container{
+/*======================================================
+Main Wrapper
+======================================================*/
 
-    max-width:950px;
+.page-wrapper{
 
-    margin:auto;
+    width:min(1200px,94%);
 
-}
-
-.header{
-
-    text-align:center;
-
-    margin-bottom:40px;
+    margin:40px auto;
 
 }
 
-.logo h1{
+/*======================================================
+Header
+======================================================*/
 
-    font-size:42px;
+.hero{
+
+    background:var(--white);
+
+    border-radius:22px;
+
+    padding:45px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    margin-bottom:30px;
+
+}
+
+.hero-logo h1{
+
+    font-size:48px;
 
     color:var(--primary);
 
     font-weight:700;
 
+    letter-spacing:-1px;
+
 }
 
-.logo p{
+.hero-logo p{
 
-    margin-top:8px;
+    margin-top:6px;
 
     color:var(--text-light);
 
@@ -77,89 +129,158 @@ body{
 
 }
 
-.progress-section{
+.hero-title{
 
-    margin-bottom:35px;
+    text-align:right;
 
 }
 
-.progress-header{
+.hero-title h2{
 
-    display:flex;
+    font-size:34px;
 
-    justify-content:space-between;
+    color:var(--text);
 
-    margin-bottom:10px;
+    margin-bottom:15px;
+
+}
+
+.hero-title span{
+
+    display:inline-block;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    padding:
+
+        12px
+
+        22px;
+
+    border-radius:50px;
+
+    font-size:15px;
 
     font-weight:600;
 
 }
 
-.progress-bar{
+/*======================================================
+Welcome Card
+======================================================*/
 
-    height:12px;
-
-    background:#dfe6ef;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-}
-
-.progress-fill{
-
-    width:0%;
-
-    height:100%;
+.welcome-card{
 
     background:linear-gradient(
-        90deg,
-        #0B5ED7,
-        #4EA5FF
+
+        135deg,
+
+        #F6FCF8,
+
+        #FFFFFF
+
     );
 
-    transition:.35s;
+    border-left:6px solid var(--primary);
 
-}
+    border-radius:22px;
 
-.card{
+    padding:35px;
 
-    background:var(--card);
-
-    border-radius:16px;
-
-    padding:30px;
-
-    margin-bottom:28px;
+    margin-bottom:30px;
 
     box-shadow:var(--shadow);
 
 }
 
-.card h2{
-
-    margin-bottom:20px;
+.welcome-card h2{
 
     color:var(--primary);
 
+    margin-bottom:12px;
+
+    font-size:32px;
+
 }
 
-.card-intro{
+.welcome-card p{
 
     color:var(--text-light);
 
-    margin-bottom:25px;
+    font-size:17px;
+
+    margin-top:8px;
 
 }
+
+/*======================================================
+Cards
+======================================================*/
+
+.card{
+
+    background:var(--white);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:30px;
+
+}
+
+.card-header{
+
+    margin-bottom:28px;
+
+}
+
+.card-header h2{
+
+    font-size:30px;
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+}
+
+.card-header p{
+
+    color:var(--text-light);
+
+    font-size:16px;
+
+}
+
+/*======================================================
+Grid
+======================================================*/
 
 .form-grid{
 
     display:grid;
 
-    gap:22px;
+    grid-template-columns:
+
+        repeat(2,1fr);
+
+    gap:24px;
 
 }
+
+.full{
+
+    grid-column:1 / -1;
+
+} 
+/*======================================================
+Form Fields
+======================================================*/
 
 .form-group{
 
@@ -173,17 +294,21 @@ body{
 
     width:100%;
 
-    border:1px solid var(--border);
+    background:#fff;
 
-    border-radius:10px;
+    border:2px solid var(--border);
 
-    padding:22px 14px 10px;
+    border-radius:14px;
 
-    font-size:15px;
+    padding:22px 18px 12px;
 
-    background:white;
+    font-size:16px;
 
-    transition:.25s;
+    color:var(--text);
+
+    transition:all .25s ease;
+
+    outline:none;
 
 }
 
@@ -191,56 +316,59 @@ body{
 
     resize:vertical;
 
-    min-height:130px;
+    min-height:140px;
 
 }
+
+/*======================================================
+Floating Labels
+======================================================*/
 
 .form-group label{
 
     position:absolute;
 
+    left:18px;
+
     top:18px;
 
-    left:14px;
+    background:#fff;
 
-    background:white;
-
-    padding:0 4px;
+    padding:0 6px;
 
     color:var(--text-light);
 
-    transition:.2s;
-
     pointer-events:none;
 
-} 
+    transition:all .20s ease;
+
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
 
     border-color:var(--primary);
 
-    outline:none;
+    box-shadow:
 
-    box-shadow:0 0 0 4px rgba(11,94,215,.15);
+        0 0 0 5px rgba(31,122,90,.12);
 
 }
 
 .form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group input:valid + label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group input:valid+label,
 
-.form-group select:focus + label,
-.form-group select:valid + label,
+.form-group select:focus+label,
+.form-group select:valid+label,
 
-.form-group textarea:focus + label,
-.form-group textarea:valid + label{
+.form-group textarea:focus+label,
+.form-group textarea:valid+label{
 
-    top:-10px;
+    top:-11px;
 
-    left:10px;
-
-    font-size:12px;
+    font-size:13px;
 
     color:var(--primary);
 
@@ -248,49 +376,163 @@ body{
 
 }
 
-.error{
+/*======================================================
+Placeholder
+======================================================*/
 
-    display:block;
+input::placeholder,
+textarea::placeholder{
 
-    margin-top:6px;
-
-    font-size:12px;
-
-    color:var(--error);
-
-    min-height:16px;
+    color:transparent;
 
 }
 
+/*======================================================
+Validation
+======================================================*/
+
 .valid{
 
-    border:2px solid var(--success)!important;
+    border-color:#2E7D32 !important;
 
 }
 
 .invalid{
 
-    border:2px solid var(--error)!important;
+    border-color:#D32F2F !important;
 
 }
 
-/*=========================================
+/*======================================================
+Buttons
+======================================================*/
+
+.btn{
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.btn-primary{
+
+    width:100%;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    padding:18px;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-secondary{
+
+    background:#EDF2F0;
+
+    color:var(--text);
+
+    padding:15px 28px;
+
+}
+
+.btn-secondary:hover{
+
+    background:#DDE8E3;
+
+}
+
+/*======================================================
+Submit Section
+======================================================*/
+
+.submit-card{
+
+    text-align:center;
+
+}
+
+.submit-text{
+
+    margin-top:18px;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+/*======================================================
+Small Helpers
+======================================================*/
+
+.required{
+
+    color:#D32F2F;
+
+}
+
+.hidden{
+
+    display:none;
+
+} 
+/*======================================================
+Inspection Agreement
+======================================================*/
+
+.agreement-item{
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    margin-bottom:18px;
+
+    background:#fff;
+
+    transition:.25s;
+
+}
+
+.agreement-item:hover{
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+    transform:translateY(-2px);
+
+}
+
+/*======================================================
 Accordion
-=========================================*/
+======================================================*/
 
 .accordion{
 
     width:100%;
 
+    background:#fff;
+
     border:none;
-
-    background:#f8f9fc;
-
-    border-radius:10px;
-
-    padding:18px 20px;
-
-    margin-bottom:10px;
 
     cursor:pointer;
 
@@ -300,9 +542,7 @@ Accordion
 
     align-items:center;
 
-    font-size:16px;
-
-    font-weight:600;
+    padding:22px 26px;
 
     transition:.25s;
 
@@ -310,15 +550,55 @@ Accordion
 
 .accordion:hover{
 
-    background:#eef4ff;
+    background:#F8FCFA;
 
 }
 
-.accordion.active{
+.accordion-left{
 
-    background:var(--primary);
+    text-align:left;
 
-    color:white;
+}
+
+.accordion-left h3{
+
+    color:var(--text);
+
+    font-size:20px;
+
+    margin-bottom:6px;
+
+}
+
+.accordion-left p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+.accordion-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    font-weight:bold;
 
 }
 
@@ -326,221 +606,65 @@ Accordion
 
     display:none;
 
-    background:white;
+    padding:30px;
 
-    border:1px solid var(--border);
+    border-top:1px solid var(--border);
 
-    border-radius:10px;
+    background:#FAFCFB;
 
-    padding:20px;
+    line-height:1.8;
 
-    margin-bottom:18px;
+}
+
+.panel h2,
+
+.panel h3,
+
+.panel h4{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
 
 }
 
 .panel p{
 
-    color:var(--text-light);
-
-    line-height:1.7;
+    margin-bottom:15px;
 
 }
 
-/*=========================================
+.panel ul{
+
+    margin-left:25px;
+
+    margin-bottom:20px;
+
+}
+
+.panel li{
+
+    margin-bottom:10px;
+
+}
+
+/*======================================================
 Signature
-=========================================*/
-
-.signature-box{
-
-    height:220px;
-
-    border:2px dashed #b9c2cf;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#9aa3ad;
-
-    margin-bottom:25px;
-
-    background:#fafbfd;
-
-}
-
-/*=========================================
-Buttons
-=========================================*/
-
-.button-row{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-}
-
-.secondary-btn{
-
-    flex:1;
-
-    min-width:180px;
-
-    border:none;
-
-    background:#eceff4;
-
-    padding:16px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.25s;
-
-}
-
-.secondary-btn:hover{
-
-    background:#dfe5ee;
-
-}
-
-.submit-btn{
-
-    flex:2;
-
-    min-width:240px;
-
-    border:none;
-
-    background:var(--primary);
-
-    color:white;
-
-    padding:16px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    transition:.25s;
-
-}
-
-.submit-btn:hover{
-
-    background:var(--primary-dark);
-
-    transform:translateY(-2px);
-
-}
-
-/*=========================================
-Success Card
-=========================================*/
-
-.success-card{
-
-    border-left:6px solid var(--success);
-
-}
-
-.success-card h2{
-
-    color:var(--success);
-
-}
-
-/*=========================================
-Footer
-=========================================*/
-
-.footer{
-
-    text-align:center;
-
-    color:var(--text-light);
-
-    padding:30px 10px;
-
-    font-size:14px;
-
-}
-
-.footer p{
-
-    margin:6px 0;
-
-}
-
-/*=========================================
-Responsive
-=========================================*/
-
-@media (max-width:768px){
-
-    body{
-
-        padding:20px;
-
-    }
-
-    .logo h1{
-
-        font-size:34px;
-
-    }
-
-    .card{
-
-        padding:22px;
-
-    }
-
-    .button-row{
-
-        flex-direction:column;
-
-    }
-
-    .submit-btn,
-    .secondary-btn{
-
-        width:100%;
-
-    }
-
-}
-/*=========================================
-Signature Canvas
-=========================================*/
+======================================================*/
 
 .signature-container{
 
-    width:100%;
+    height:260px;
 
-    height:240px;
+    border:2px dashed #C9D8CF;
 
-    border:2px dashed #c9d2dc;
+    border-radius:18px;
 
-    border-radius:12px;
+    background:#fff;
 
     overflow:hidden;
 
-    background:#fff;
+    margin-top:20px;
 
     margin-bottom:20px;
 
@@ -559,3 +683,488 @@ Signature Canvas
     touch-action:none;
 
 }
+
+.signature-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+/*======================================================
+Success Message
+======================================================*/
+
+.success-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:60px 40px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.success-circle{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:#E8F7EE;
+
+    color:#2E7D32;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+}
+
+.success-card h2{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.success-card p{
+
+    color:var(--text-light);
+
+    margin-bottom:10px;
+
+}
+
+.agreement-reference{
+
+    margin-top:30px;
+
+    padding:18px 30px;
+
+    background:#F7FAF8;
+
+    border-radius:14px;
+
+    border:1px solid var(--border);
+
+}
+
+/*======================================================
+Footer
+======================================================*/
+
+.footer{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+.footer p{
+
+    margin-bottom:6px;
+
+}
+
+/*======================================================
+Professional Effects
+======================================================*/
+
+.card,
+
+.hero,
+
+.welcome-card,
+
+.success-card{
+
+    transition:.30s;
+
+}
+
+.card:hover,
+
+.hero:hover,
+
+.welcome-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.10);
+
+}
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+} 
+/*======================================================
+Responsive Design
+======================================================*/
+
+@media (max-width:1100px){
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .hero-title{
+
+        text-align:center;
+
+    }
+
+}
+
+@media (max-width:900px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full{
+
+        grid-column:auto;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .page-wrapper{
+
+        width:95%;
+
+        margin:20px auto;
+
+    }
+
+    .hero{
+
+        padding:30px;
+
+    }
+
+    .hero-logo h1{
+
+        font-size:40px;
+
+    }
+
+    .hero-title h2{
+
+        font-size:28px;
+
+    }
+
+    .welcome-card{
+
+        padding:28px;
+
+    }
+
+    .welcome-card h2{
+
+        font-size:28px;
+
+    }
+
+    .card{
+
+        padding:28px;
+
+    }
+
+    .card-header h2{
+
+        font-size:26px;
+
+    }
+
+    .accordion{
+
+        padding:18px;
+
+    }
+
+    .accordion-left h3{
+
+        font-size:18px;
+
+    }
+
+    .accordion-left p{
+
+        font-size:14px;
+
+    }
+
+    .signature-container{
+
+        height:220px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero{
+
+        padding:24px;
+
+    }
+
+    .hero-logo h1{
+
+        font-size:34px;
+
+    }
+
+    .hero-logo p{
+
+        font-size:16px;
+
+    }
+
+    .hero-title h2{
+
+        font-size:24px;
+
+    }
+
+    .hero-title span{
+
+        width:100%;
+
+        display:block;
+
+        text-align:center;
+
+    }
+
+    .welcome-card{
+
+        padding:24px;
+
+    }
+
+    .welcome-card h2{
+
+        font-size:24px;
+
+    }
+
+    .card{
+
+        padding:22px;
+
+    }
+
+    .card-header h2{
+
+        font-size:24px;
+
+    }
+
+    .btn-primary{
+
+        padding:16px;
+
+        font-size:16px;
+
+    }
+
+    .btn-secondary{
+
+        width:100%;
+
+    }
+
+}
+
+/*======================================================
+Scrollbar
+======================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EEF3F0;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/*======================================================
+Transitions
+======================================================*/
+
+button,
+input,
+select,
+textarea,
+.card,
+.agreement-item{
+
+    transition:all .25s ease;
+
+}
+
+/*======================================================
+Focus Accessibility
+======================================================*/
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+
+    outline:3px solid rgba(31,122,90,.25);
+
+    outline-offset:2px;
+
+}
+
+/*======================================================
+Images
+======================================================*/
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/*======================================================
+Links
+======================================================*/
+
+a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+}
+
+a:hover{
+
+    color:var(--primary-dark);
+
+}
+
+/*======================================================
+Future Utility Classes
+======================================================*/
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-10{
+
+    margin-top:10px;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mt-30{
+
+    margin-top:30px;
+
+}
+
+.mb-10{
+
+    margin-bottom:10px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.mb-30{
+
+    margin-bottom:30px;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/*======================================================
+End of SiteScop V4 Design System
+======================================================*/
