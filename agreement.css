@@ -158,12 +158,10 @@ button{
     Header
 ==========================================================*/
 
-/*=========================================================
-    AGREEMENT HEADER
-=========================================================*/
+
 
 .agreement-header{
-    padding:40px;
+    padding:35px 40px;
     background:linear-gradient(135deg,#0B6B53 0%,#0F7A5F 45%,#0A6FAE 100%);
     color:#FFFFFF;
     border-radius:14px 14px 0 0;
@@ -172,7 +170,7 @@ button{
 .company-header{
     display:flex;
     align-items:center;
-    gap:30px;
+    gap:32px;
     flex-wrap:nowrap;
 }
 
@@ -186,7 +184,7 @@ button{
     justify-content:center;
     overflow:hidden;
     flex-shrink:0;
-    box-shadow:0 6px 18px rgba(0,0,0,.18);
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
 .company-logo img{
@@ -202,12 +200,12 @@ button{
 
 .company-details h1{
     margin:0;
-    font-size:3.4rem;
+    font-size:2.4rem;
     font-weight:700;
-    color:#FFFFFF;
     line-height:1.15;
-    letter-spacing:.3px;
-    text-shadow:0 2px 4px rgba(0,0,0,.25);
+    color:#FFFFFF;
+    letter-spacing:.2px;
+    text-shadow:0 2px 6px rgba(0,0,0,.25);
 }
 
 .company-details h1::after{
@@ -216,20 +214,20 @@ button{
     width:100%;
     height:3px;
     background:#7AC943;
-    margin:18px 0 22px;
-    border-radius:2px;
+    margin:16px 0 18px;
+    border-radius:3px;
 }
 
 .company-name{
     margin:0;
-    font-size:2rem;
+    font-size:1.9rem;
     font-weight:700;
     color:#FFFFFF;
 }
 
 .company-tagline{
-    margin-top:10px;
-    font-size:1.2rem;
+    margin-top:8px;
+    font-size:1.15rem;
     color:rgba(255,255,255,.95);
     font-weight:400;
 }
