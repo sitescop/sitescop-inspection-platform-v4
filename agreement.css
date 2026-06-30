@@ -298,8 +298,15 @@ button{
 .info-grid select,
 .form-grid input,
 .form-grid select{
+    display:block;
     width:100%;
+    min-width:0;
+    height:62px;
+    padding:0 18px;
     box-sizing:border-box;
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
 }
 
 .full-width{
