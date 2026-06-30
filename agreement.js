@@ -1179,19 +1179,23 @@ class SiteScopAgreement {
             this.state.agreement =
                 this.createAgreementObject();
 
-            this.state.agreement.agreementId =
-                this.generateAgreementId();
+           this.state.agreement.agreementId =
+    this.generateAgreementId();
 
-           
-            document.getElementById(
-                "submissionTimestamp"
-            ).value =
-                this.state.agreement.timestamp;
+const agreementId = document.getElementById("agreementId");
+if (agreementId) {
+    agreementId.value = this.state.agreement.agreementId;
+}
 
-            document.getElementById(
-                "agreementStatus"
-            ).value =
-                "Submitted";
+const submissionTimestamp = document.getElementById("submissionTimestamp");
+if (submissionTimestamp) {
+    submissionTimestamp.value = this.state.agreement.timestamp;
+}
+
+const agreementStatus = document.getElementById("agreementStatus");
+if (agreementStatus) {
+    agreementStatus.value = "Submitted";
+}
 
             /*
             ==================================================
