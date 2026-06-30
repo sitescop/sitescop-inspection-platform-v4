@@ -808,10 +808,197 @@
         <section id="successMessage"
                  class="success-card hidden">
 
-            <!-- Completed in Part 8 -->
+            <!-- ======================================================
+     Success Content
+====================================================== -->
+
+<div class="success-container">
+
+    <div class="success-icon">
+
+        ✓
+
+    </div>
+
+    <h1>
+
+        Agreement Submitted Successfully
+
+    </h1>
+
+    <p>
+
+        Thank you for accepting the SiteScop Inspection Agreement.
+
+    </p>
+
+    <div class="success-details">
+
+        <div class="success-row">
+
+            <strong>Agreement ID</strong>
+
+            <span id="successAgreementId">
+
+                SSA-00000000-000000
+
+            </span>
+
+        </div>
+
+        <div class="success-row">
+
+            <strong>Date Submitted</strong>
+
+            <span id="successDate">
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <p>
+
+        A confirmation email and a copy of your agreement will be sent after processing.
+
+    </p>
+
+    <button
+        type="button"
+        id="closeSuccess"
+        class="btn btn-primary">
+
+        Return
+
+    </button>
+
+</div>
 
         </section>
+<!-- ======================================================
+     Hidden Agreement Metadata
+====================================================== -->
 
+<section id="agreementMetadata" class="hidden">
+
+    <input
+        type="hidden"
+        id="agreementVersion"
+        value="4.0">
+
+    <input
+        type="hidden"
+        id="legalDocumentVersion"
+        value="1.0">
+
+    <input
+        type="hidden"
+        id="submissionTimestamp">
+
+    <input
+        type="hidden"
+        id="agreementStatus"
+        value="Draft">
+
+    <input
+        type="hidden"
+        id="agreementUUID">
+
+    <input
+        type="hidden"
+        id="browserInformation">
+
+    <input
+        type="hidden"
+        id="deviceInformation">
+
+    <input
+        type="hidden"
+        id="screenResolution">
+
+    <input
+        type="hidden"
+        id="ipAddress">
+
+</section>
+
+<!-- ======================================================
+     Accessibility
+====================================================== -->
+
+<div
+    id="screenReaderStatus"
+    class="sr-only"
+    aria-live="polite"
+    aria-atomic="true">
+</div> 
+        <!-- ======================================================
+     SiteScop V4 System Information
+====================================================== -->
+
+<footer id="agreementSystemFooter"
+        class="agreement-system-footer">
+
+    <div class="system-information">
+
+        <span class="system-name">
+
+            SiteScop V4 Inspection Platform
+
+        </span>
+
+        <span class="system-version">
+
+            Version 4.0.0
+
+        </span>
+
+        <span class="system-build">
+
+            Client Agreement Module
+
+        </span>
+
+    </div>
+
+</footer>
+
+<!-- ======================================================
+     Hidden Runtime Containers
+====================================================== -->
+
+<div id="modalContainer"
+     class="hidden">
+</div>
+
+<div id="overlayContainer"
+     class="hidden">
+</div>
+
+<div id="notificationContainer"
+     class="hidden">
+</div>
+
+<div id="pdfContainer"
+     class="hidden">
+</div>
+
+<div id="printContainer"
+     class="hidden">
+</div>
+
+<div id="cloudSyncContainer"
+     class="hidden">
+</div>
+
+<div id="temporaryContainer"
+     class="hidden">
+</div>
+
+<!-- ======================================================
+     End SiteScop Client Agreement
+====================================================== -->
     </main>
 
     <!-- ==========================================================
