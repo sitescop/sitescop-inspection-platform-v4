@@ -1203,19 +1203,28 @@ if (agreementStatus) {
             ==================================================
             */
 
-            await this.generatePDF();
+          console.log("1 - generatePDF");
+await this.generatePDF();
 
-            await this.saveCRM();
+console.log("2 - saveCRM");
+await this.saveCRM();
 
-            await this.emailAgreement();
+console.log("3 - emailAgreement");
+await this.emailAgreement();
 
-            await this.uploadCloud();
+console.log("4 - uploadCloud");
+await this.uploadCloud();
 
-            await this.sendSMS();
+console.log("5 - sendSMS");
+await this.sendSMS();
 
-            await this.sendWhatsApp();
+console.log("6 - sendWhatsApp");
+await this.sendWhatsApp();
 
-            this.showSuccessScreen();
+console.log("7 - showSuccessScreen");
+this.showSuccessScreen();
+
+console.log("Finished");
 
             this.showToast(
                 "Agreement submitted successfully.",
