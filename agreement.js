@@ -1182,11 +1182,7 @@ class SiteScopAgreement {
             this.state.agreement.agreementId =
                 this.generateAgreementId();
 
-            document.getElementById(
-                "agreementId"
-            ).value =
-                this.state.agreement.agreementId;
-
+           
             document.getElementById(
                 "submissionTimestamp"
             ).value =
