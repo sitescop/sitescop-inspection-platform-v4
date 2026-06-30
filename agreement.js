@@ -1265,24 +1265,30 @@ console.log("Finished");
 
     showSuccessScreen() {
 
+    if (this.dom.card) {
         this.dom.card.classList.add("hidden");
+    }
 
+    if (this.dom.success) {
         this.dom.success.classList.remove("hidden");
         this.dom.success.classList.add("active");
-
-        document.getElementById(
-            "successAgreementId"
-        ).textContent =
-            this.state.agreement.agreementId;
-
-        document.getElementById(
-            "successDate"
-        ).textContent =
-            new Date().toLocaleString(
-                "en-AU"
-            );
-
     }
+
+    const successAgreementId = document.getElementById("successAgreementId");
+    if (successAgreementId) {
+        successAgreementId.textContent = this.state.agreement.agreementId;
+    }
+
+    const successDate = document.getElementById("successDate");
+    if (successDate) {
+        successDate.textContent = new Date().toLocaleString("en-AU");
+    }
+
+    if (this.dom.submissionStatus) {
+        this.dom.submissionStatus.classList.add("hidden");
+    }
+
+}
 
     scrollToFirstError() {
 
