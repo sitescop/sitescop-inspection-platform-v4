@@ -283,13 +283,23 @@ button{
 
 .info-grid,
 .form-grid{
-
     display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:20px;
+    align-items:start;
+}
 
+.info-grid>.form-group,
+.form-grid>.form-group{
+    width:100%;
+}
+
+.info-grid input,
+.info-grid select,
+.form-grid input,
+.form-grid select{
+    width:100%;
+    box-sizing:border-box;
 }
 
 .full-width{
