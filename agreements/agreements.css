@@ -1,6 +1,6 @@
 /* ==========================================================
    SiteScop V4
-   Client Agreements Dashboard
+   Client Agreements
 ========================================================== */
 
 *{
@@ -10,213 +10,238 @@
 }
 
 body{
-
     font-family:Arial,Helvetica,sans-serif;
-
-    background:#f4f6f9;
-
-    color:#222;
-
+    background:#eef2f7;
+    color:#1f2937;
 }
 
-/*==========================================================*/
+/* ===========================
+   Header
+=========================== */
 
-.top-header{
-
-    background:#10233f;
-
+.header{
+    background:#142540;
     color:#fff;
-
-    padding:25px 40px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    box-shadow:0 2px 10px rgba(0,0,0,.15);
-
+    padding:30px;
 }
 
 .logo{
-
-    font-size:34px;
-
-    font-weight:bold;
-
+    font-size:48px;
+    font-weight:700;
 }
 
-.site{
-
-    color:#ffffff;
-
-}
-
-.scop{
-
-    color:#f5a623;
-
+.logo span{
+    color:#f39c12;
 }
 
 .title{
-
-    margin-left:15px;
-
-    font-size:28px;
-
-    color:#ffffff;
-
+    margin-top:8px;
+    font-size:42px;
+    font-weight:700;
 }
 
-/*==========================================================*/
+/* ===========================
+   Main Container
+=========================== */
 
-.new-btn{
-
-    background:#0b6b53;
-
-    color:#fff;
-
-    border:none;
-
-    padding:14px 28px;
-
-    font-size:18px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    font-weight:bold;
-
-}
-
-.new-btn:hover{
-
-    background:#0e8b6d;
-
-    transform:translateY(-2px);
-
-}
-
-/*==========================================================*/
-
-.dashboard{
-
-    width:95%;
-
+.container{
     max-width:1400px;
-
-    margin:50px auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-    gap:30px;
-
+    margin:auto;
+    padding:40px 25px;
 }
 
-/*==========================================================*/
+/* ===========================
+   Dashboard Grid
+=========================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+/* ===========================
+   Cards
+=========================== */
 
 .card{
-
     background:#fff;
-
-    border-radius:14px;
-
+    border-radius:18px;
     padding:45px 30px;
-
     text-align:center;
-
     cursor:pointer;
 
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
     transition:.30s;
-
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
-
-    border:1px solid #ececec;
-
 }
 
 .card:hover{
 
     transform:translateY(-8px);
 
-    box-shadow:0 14px 30px rgba(0,0,0,.15);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.18);
 
 }
+
+.card:active{
+
+    transform:scale(.98);
+
+}
+
+/* ===========================
+   Icons
+=========================== */
 
 .icon{
 
     font-size:70px;
 
-    margin-bottom:25px;
+    margin-bottom:20px;
 
 }
+
+/* ===========================
+   Titles
+=========================== */
 
 .card h2{
 
-    font-size:30px;
+    font-size:34px;
 
     margin-bottom:15px;
 
-    color:#10233f;
+    color:#142540;
 
 }
+
+/* ===========================
+   Description
+=========================== */
 
 .card p{
 
-    font-size:18px;
+    font-size:20px;
 
-    color:#666;
+    color:#6b7280;
+
+    line-height:1.6;
 
 }
 
-/*==========================================================*/
-
-@media(max-width:900px){
+/* ===========================
+   Dashboard Button
+=========================== */
 
 .dashboard{
 
-    grid-template-columns:1fr;
+    margin-top:50px;
+
+    display:flex;
+
+    justify-content:flex-start;
 
 }
 
-.top-header{
+.dashboard a{
 
-    flex-direction:column;
+    display:inline-block;
 
-    gap:20px;
+    background:#142540;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:15px 28px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    transition:.25s;
+
+}
+
+.dashboard a:hover{
+
+    background:#1d3557;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+
+    margin-top:60px;
 
     text-align:center;
 
-}
+    color:#888;
 
-.logo{
-
-    font-size:28px;
+    font-size:16px;
 
 }
 
-.title{
+/* ===========================
+   Mobile
+=========================== */
 
-    display:block;
+@media(max-width:900px){
 
-    margin-top:10px;
+    .header{
 
-    margin-left:0;
+        text-align:center;
 
-    font-size:24px;
+        padding:25px;
 
-}
+    }
 
-.new-btn{
+    .logo{
 
-    width:100%;
+        font-size:38px;
 
-}
+    }
+
+    .title{
+
+        font-size:32px;
+
+    }
+
+    .card{
+
+        padding:35px 20px;
+
+    }
+
+    .icon{
+
+        font-size:56px;
+
+    }
+
+    .card h2{
+
+        font-size:28px;
+
+    }
+
+    .card p{
+
+        font-size:18px;
+
+    }
+
+    .dashboard{
+
+        justify-content:center;
+
+    }
 
 }
