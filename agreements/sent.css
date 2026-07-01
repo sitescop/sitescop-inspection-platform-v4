@@ -1,1 +1,417 @@
+/*=========================================================
+  SiteScop V4
+  Sent Agreements
+=========================================================*/
 
+:root{
+
+    --primary:#0F2747;
+    --primary-dark:#091B33;
+
+    --background:#F5F7FA;
+
+    --card:#FFFFFF;
+
+    --border:#E5E7EB;
+
+    --text:#1F2937;
+
+    --text-light:#6B7280;
+
+    --radius:20px;
+
+    --shadow:
+        0 12px 30px rgba(15,39,71,.08);
+
+    --shadow-hover:
+        0 18px 40px rgba(15,39,71,.14);
+
+}
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+/*=========================================================*/
+/* HEADER */
+/*=========================================================*/
+
+.top-header{
+
+    background:var(--primary);
+
+    height:76px;
+
+    display:flex;
+
+    align-items:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+
+}
+
+.header-container{
+
+    width:100%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:0 30px;
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.logo{
+
+    text-decoration:none;
+
+    font-size:1.7rem;
+
+    font-weight:800;
+
+}
+
+.site{
+
+    color:#ffffff;
+
+}
+
+.scop{
+
+    color:#38BDF8;
+
+}
+
+.divider{
+
+    width:1px;
+
+    height:30px;
+
+    background:rgba(255,255,255,.25);
+
+}
+
+.header-left h1{
+
+    color:#fff;
+
+    font-size:1.35rem;
+
+}
+
+/*=========================================================*/
+/* PAGE */
+/*=========================================================*/
+
+.page{
+
+    max-width:720px;
+
+    margin:60px auto;
+
+    padding:0 25px;
+
+}
+
+/*=========================================================*/
+/* CARD */
+/*=========================================================*/
+
+.send-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:45px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:15px;
+
+}
+
+.card-header i{
+
+    font-size:2rem;
+
+    color:#0284C7;
+
+}
+
+.card-header h2{
+
+    font-size:1.8rem;
+
+}
+
+.intro{
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================================*/
+/* FORM */
+/*=========================================================*/
+
+.form-group{
+
+    margin-bottom:24px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:.25s;
+
+}
+
+.form-group input:focus{
+
+    outline:none;
+
+    border-color:#0F2747;
+
+    box-shadow:0 0 0 3px rgba(15,39,71,.12);
+
+}
+
+/*=========================================================*/
+/* RADIO */
+/*=========================================================*/
+
+.send-options{
+
+    margin:35px 0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.send-options label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+.send-options input{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+/*=========================================================*/
+/* BUTTON */
+/*=========================================================*/
+
+.send-button{
+
+    width:100%;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.send-button:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================================*/
+/* FOOTER */
+/*=========================================================*/
+
+footer{
+
+    max-width:720px;
+
+    margin:25px auto 60px;
+
+    padding:0 25px;
+
+}
+
+.return-btn{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    padding:14px 22px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    transition:.25s;
+
+}
+
+.return-btn:hover{
+
+    background:#0F2747;
+
+    color:#fff;
+
+}
+
+/*=========================================================*/
+/* TABLET */
+/*=========================================================*/
+
+@media(max-width:900px){
+
+.send-card{
+
+    padding:35px;
+
+}
+
+}
+
+/*=========================================================*/
+/* MOBILE */
+/*=========================================================*/
+
+@media(max-width:600px){
+
+.page{
+
+    margin:30px auto;
+
+}
+
+.send-card{
+
+    padding:25px;
+
+}
+
+.card-header h2{
+
+    font-size:1.4rem;
+
+}
+
+footer{
+
+    padding:0 18px;
+
+}
+
+.return-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+}
