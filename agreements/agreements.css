@@ -1,37 +1,150 @@
-/* ======================================================
+/* ==========================================================
    SiteScop V4
-   Client Agreements
-====================================================== */
+   Client Agreements Dashboard
+   agreements.css
+   ========================================================== */
 
-*{
+/* ===========================
+   CSS VARIABLES
+=========================== */
+
+:root{
+
+    --primary:#0F2747;
+    --primary-dark:#091B33;
+
+    --background:#F5F7FA;
+
+    --card:#FFFFFF;
+
+    --text:#1F2937;
+
+    --text-light:#6B7280;
+
+    --border:#E5E7EB;
+
+    --shadow:
+        0 10px 25px rgba(15,39,71,.08);
+
+    --shadow-hover:
+        0 20px 40px rgba(15,39,71,.14);
+
+    --radius:22px;
+
+    --transition:.28s ease;
+
+    --header-height:76px;
+
+    --max-width:1280px;
+
+}
+
+
+/* ===========================
+   RESET
+=========================== */
+
+*,
+*::before,
+*::after{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
 body{
 
-    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+    font-family:'Inter',sans-serif;
 
-    background:#eef3f8;
+    background:var(--background);
 
-    color:#172b4d;
+    color:var(--text);
+
+    min-height:100vh;
+
+    -webkit-font-smoothing:antialiased;
 
 }
 
-/* ======================================================
-HEADER
-====================================================== */
 
-.header{
+/* ===========================
+   LINKS
+=========================== */
 
-    background:#162845;
+a{
 
-    color:#fff;
+    text-decoration:none;
 
-    padding:35px 40px;
+    color:inherit;
 
-    box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+button{
+
+    font-family:inherit;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+
+/* ===========================
+   HEADER
+=========================== */
+
+.top-header{
+
+    width:100%;
+
+    height:var(--header-height);
+
+    background:var(--primary);
+
+    box-shadow:0 4px 14px rgba(0,0,0,.12);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:500;
+
+}
+
+.header-container{
+
+    max-width:var(--max-width);
+
+    margin:auto;
+
+    height:100%;
+
+    padding:0 30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
 
 }
 
@@ -41,243 +154,587 @@ HEADER
 
     align-items:center;
 
-    gap:22px;
-
-    flex-wrap:wrap;
+    gap:12px;
 
 }
 
-.site{
+.logo img{
 
-    color:#ffffff;
+    width:42px;
 
-    font-size:44px;
+    height:42px;
+
+    object-fit:contain;
+
+}
+
+.logo-text{
+
+    font-size:1.55rem;
 
     font-weight:800;
 
-}
+    letter-spacing:-0.5px;
 
-.scop{
-
-    color:#f4a623;
-
-    font-size:44px;
-
-    font-weight:800;
+    color:#fff;
 
 }
 
-.title{
+.logo-text .site{
 
-    font-size:28px;
+    color:#fff;
+
+}
+
+.logo-text .scop{
+
+    color:#38BDF8;
+
+}
+
+.header-divider{
+
+    width:1px;
+
+    height:32px;
+
+    background:rgba(255,255,255,.25);
+
+}
+
+.top-header h1{
+
+    color:#fff;
+
+    font-size:1.4rem;
 
     font-weight:700;
 
-}
-
-/* ======================================================
-MAIN
-====================================================== */
-
-.container{
-
-    max-width:900px;
-
-    margin:80px auto 120px;
-
-    padding:0 20px;
+    letter-spacing:-.4px;
 
 }
 
-/* ======================================================
-CARDS
-====================================================== */
 
-.cards{
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+
+.dashboard{
+
+    max-width:var(--max-width);
+
+    margin:40px auto;
+
+    padding:0 30px 100px;
+
+} 
+/* ==========================================================
+   DASHBOARD GRID
+========================================================== */
+
+.dashboard-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(320px,1fr));
 
-    gap:35px;
+    gap:26px;
 
-}
-
-.card{
-
-    background:#ffffff;
-
-    border-radius:18px;
-
-    text-decoration:none;
-
-    color:#172b4d;
-
-    padding:40px 25px;
-
-    text-align:center;
-
-    transition:.25s;
-
-    box-shadow:0 12px 35px rgba(0,0,0,.10);
-
-    border:1px solid #e5edf6;
+    align-items:stretch;
 
 }
 
-.card:hover{
+
+/* ==========================================================
+   DASHBOARD CARDS
+========================================================== */
+
+.dashboard-card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:26px;
+
+    min-height:165px;
+
+    border:1px solid rgba(229,231,235,.65);
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+}
+
+.dashboard-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    width:5px;
+
+    background:var(--primary);
+
+    opacity:0;
+
+    transition:opacity var(--transition);
+
+}
+
+.dashboard-card:hover{
 
     transform:translateY(-6px);
 
-    box-shadow:0 18px 40px rgba(0,0,0,.18);
+    box-shadow:var(--shadow-hover);
+
+    border-color:#D5DCE5;
 
 }
 
-.icon{
+.dashboard-card:hover::before{
 
-    font-size:52px;
-
-    margin-bottom:22px;
+    opacity:1;
 
 }
 
-.card h2{
 
-    font-size:22px;
+/* ==========================================================
+   ICONS
+========================================================== */
 
-    margin-bottom:12px;
+.card-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
 
 }
 
-.card p{
+.card-icon i{
 
-    font-size:17px;
+    font-size:1.8rem;
 
-    color:#6b7280;
+}
+
+.card-icon.sent{
+
+    background:#E8F4FD;
+
+    color:#0284C7;
+
+}
+
+.card-icon.received{
+
+    background:#EEF8EE;
+
+    color:#16A34A;
+
+}
+
+.card-icon.completed{
+
+    background:#ECFDF3;
+
+    color:#10B981;
+
+}
+
+.card-icon.recycle{
+
+    background:#FDECEC;
+
+    color:#DC2626;
+
+}
+
+
+/* ==========================================================
+   CARD CONTENT
+========================================================== */
+
+.card-content{
+
+    flex:1;
+
+}
+
+.card-content h2{
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+    line-height:1.2;
+
+}
+
+.card-content p{
+
+    font-size:.95rem;
+
+    color:var(--text-light);
 
     line-height:1.5;
 
 }
 
-/* ======================================================
-RETURN BUTTON
-====================================================== */
 
-.back-button{
+/* ==========================================================
+   RIGHT ARROW
+========================================================== */
+
+.card-arrow{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#F3F6FA;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#94A3B8;
+
+    transition:all var(--transition);
+
+    flex-shrink:0;
+
+}
+
+.dashboard-card:hover .card-arrow{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    transform:translateX(3px);
+
+} 
+/* ==========================================================
+   FLOATING RETURN BUTTON
+========================================================== */
+
+.return-dashboard-btn{
 
     position:fixed;
 
-    left:30px;
+    left:28px;
 
-    bottom:25px;
+    bottom:28px;
 
-    background:#ffffff;
+    display:flex;
 
-    color:#162845;
+    align-items:center;
 
-    text-decoration:none;
+    gap:12px;
 
-    border-radius:12px;
+    padding:14px 22px;
 
-    padding:14px 24px;
+    background:var(--primary);
 
-    font-size:18px;
+    color:#FFFFFF;
+
+    border:none;
+
+    border-radius:999px;
+
+    font-size:.95rem;
 
     font-weight:600;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
+    box-shadow:0 14px 35px rgba(15,39,71,.25);
 
-    transition:.25s;
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
 
-}
-
-.back-button:hover{
-
-    background:#162845;
-
-    color:#ffffff;
+    z-index:1000;
 
 }
 
-/* ======================================================
-TABLET
-====================================================== */
+.return-dashboard-btn:hover{
 
-@media(max-width:900px){
+    background:var(--primary-dark);
 
-    .container{
+    transform:translateY(-3px);
 
-        max-width:700px;
+    box-shadow:0 18px 40px rgba(15,39,71,.35);
 
-        margin-top:60px;
+}
+
+.return-dashboard-btn i{
+
+    font-size:1rem;
+
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+.dashboard-card:focus-visible,
+.return-dashboard-btn:focus-visible{
+
+    outline:3px solid #38BDF8;
+
+    outline-offset:4px;
+
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width:1024px){
+
+    .dashboard{
+
+        padding:0 22px 90px;
 
     }
 
-    .cards{
+    .dashboard-grid{
 
-        gap:25px;
+        gap:20px;
+
+    }
+
+    .dashboard-card{
+
+        min-height:150px;
+
+        padding:22px;
+
+    }
+
+    .card-icon{
+
+        width:62px;
+
+        height:62px;
+
+        border-radius:16px;
+
+    }
+
+    .card-icon i{
+
+        font-size:1.55rem;
+
+    }
+
+    .card-content h2{
+
+        font-size:1.2rem;
 
     }
 
 }
 
-/* ======================================================
-MOBILE
-====================================================== */
 
-@media(max-width:700px){
+/* ==========================================================
+   MOBILE
+========================================================== */
 
-    .header{
+@media (max-width:768px){
 
-        padding:25px;
+    .header-container{
 
-    }
-
-    .logo{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:8px;
+        padding:0 18px;
 
     }
 
-    .site,
+    .logo img{
 
-    .scop{
+        width:36px;
 
-        font-size:34px;
-
-    }
-
-    .title{
-
-        font-size:24px;
+        height:36px;
 
     }
 
-    .cards{
+    .logo-text{
+
+        font-size:1.25rem;
+
+    }
+
+    .header-divider{
+
+        display:none;
+
+    }
+
+    .top-header h1{
+
+        font-size:1.05rem;
+
+    }
+
+    .dashboard{
+
+        margin:24px auto;
+
+        padding:0 16px 110px;
+
+    }
+
+    .dashboard-grid{
 
         grid-template-columns:1fr;
 
-    }
-
-    .card{
-
-        padding:35px 20px;
+        gap:18px;
 
     }
 
-    .back-button{
+    .dashboard-card{
 
-        left:15px;
+        min-height:120px;
 
-        right:15px;
+        padding:18px;
 
-        bottom:15px;
+        gap:16px;
 
-        text-align:center;
+    }
+
+    .card-icon{
+
+        width:54px;
+
+        height:54px;
+
+        border-radius:14px;
+
+    }
+
+    .card-icon i{
+
+        font-size:1.35rem;
+
+    }
+
+    .card-content h2{
+
+        font-size:1.08rem;
+
+        margin-bottom:5px;
+
+    }
+
+    .card-content p{
+
+        font-size:.85rem;
+
+    }
+
+    .card-arrow{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+    .return-dashboard-btn{
+
+        left:16px;
+
+        right:16px;
+
+        bottom:16px;
+
+        justify-content:center;
+
+        width:auto;
+
+        padding:16px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width:420px){
+
+    .logo-text{
+
+        display:none;
+
+    }
+
+    .top-header h1{
+
+        font-size:1rem;
+
+    }
+
+    .dashboard-card{
+
+        padding:16px;
+
+    }
+
+    .card-icon{
+
+        width:48px;
+
+        height:48px;
+
+    }
+
+    .card-icon i{
+
+        font-size:1.2rem;
 
     }
 
