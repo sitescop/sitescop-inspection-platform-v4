@@ -14,7 +14,7 @@ const AgreementEngine = {
 
     version: "1.0.0",
 
-    process(submission) {
+    async process(submission) {
 
         console.group("Agreement Engine");
 
