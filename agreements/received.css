@@ -1,1 +1,312 @@
+/*==================================================
+  SiteScop V4
+  Received Agreements
+==================================================*/
 
+:root{
+
+    --primary:#1d3357;
+    --primary-light:#2d4b80;
+    --accent:#f4a300;
+
+    --background:#eef3f9;
+
+    --card:#ffffff;
+
+    --border:#dbe4ef;
+
+    --text:#1f2937;
+
+    --text-light:#6b7280;
+
+    --success:#16a34a;
+
+    --warning:#f59e0b;
+
+    --danger:#dc2626;
+
+    --radius:16px;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+/*==================================================
+HEADER
+==================================================*/
+
+.top-header{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    padding:28px 40px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.15);
+
+}
+
+.header-container{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+}
+
+.logo{
+
+    font-size:46px;
+
+    font-weight:800;
+
+}
+
+.site{
+
+    color:#fff;
+
+}
+
+.scop{
+
+    color:#f4a300;
+
+}
+
+.header-container h1{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+PAGE
+==================================================*/
+
+.page{
+
+    padding:40px;
+
+}
+
+.page-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+}
+
+/*==================================================
+TITLE
+==================================================*/
+
+.page-title{
+
+    padding:35px 40px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.page-title h2{
+
+    font-size:34px;
+
+    color:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:10px;
+
+}
+
+.page-title p{
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+}
+
+/*==================================================
+TABLE
+==================================================*/
+
+.table-card{
+
+    padding:35px 40px;
+
+}
+
+.table-header h2{
+
+    color:var(--primary);
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.table-header p{
+
+    color:var(--text-light);
+
+    margin-bottom:25px;
+
+}
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+th{
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+td{
+
+    padding:18px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.empty-row td{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    padding:50px;
+
+}
+
+/*==================================================
+RETURN BUTTON
+==================================================*/
+
+.return-row{
+
+    margin:35px 40px 40px;
+
+}
+
+.return-btn{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px 24px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.return-btn:hover{
+
+    background:var(--primary-light);
+
+}
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:900px){
+
+    .page{
+
+        padding:20px;
+
+    }
+
+    .top-header{
+
+        padding:22px;
+
+    }
+
+    .logo{
+
+        font-size:34px;
+
+    }
+
+    .page-title{
+
+        padding:25px;
+
+    }
+
+    .table-card{
+
+        padding:25px;
+
+    }
+
+}
