@@ -1,126 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Agreements | SiteScop V4</title>
 
-<title>SiteScop V4 | Client Agreements</title>
+    <meta name="description"
+        content="SiteScop V4 Client Agreements Management Dashboard">
 
-<link rel="stylesheet" href="agreements.css">
+    <link rel="icon" href="../assets/favicon.ico">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="agreements.css">
 </head>
 
 <body>
 
-<!-- ======================================================
-HEADER
-====================================================== -->
+    <!-- ===========================
+         HEADER
+    ============================ -->
 
-<header class="header">
+    <header class="top-header">
 
-    <div class="logo">
+        <div class="header-container">
 
-        <span class="site">Site</span><span class="scop">Scop</span>
+            <div class="header-left">
 
-        <span class="title">
-            Client Agreements
-        </span>
+                <a href="../index.html" class="logo">
 
-    </div>
+                    <img src="../assets/logo.png"
+                        alt="SiteScop Logo">
 
-</header>
+                    <div class="logo-text">
+                        <span class="site">Site</span><span class="scop">Scop</span>
+                    </div>
 
-<!-- ======================================================
-MAIN
-====================================================== -->
+                </a>
 
-<main class="container">
+                <div class="header-divider"></div>
 
-    <div class="cards">
+                <h1>Client Agreements</h1>
 
-        <!-- Sent -->
-
-        <a href="#" class="card">
-
-            <div class="icon">
-                📤
             </div>
 
-            <h2>Sent Agreements</h2>
+        </div>
 
-            <p>
-                Waiting for client completion
-            </p>
+    </header>
 
-        </a>
+    <!-- ===========================
+         MAIN
+    ============================ -->
 
+    <main class="dashboard">
 
-        <!-- Received -->
+        <section class="dashboard-grid"> 
+                        <!-- Sent Agreements -->
+            <article class="dashboard-card" onclick="openSent()">
+                <div class="card-icon sent">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
 
-        <a href="#" class="card">
+                <div class="card-content">
+                    <h2>Sent Agreements</h2>
+                    <p>Waiting for client completion</p>
+                </div>
 
-            <div class="icon">
-                📥
-            </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </article>
 
-            <h2>Received Agreements</h2>
+            <!-- Received Agreements -->
+            <article class="dashboard-card" onclick="openReceived()">
+                <div class="card-icon received">
+                    <i class="fa-solid fa-inbox"></i>
+                </div>
 
-            <p>
-                Completed by clients
-            </p>
+                <div class="card-content">
+                    <h2>Received Agreements</h2>
+                    <p>Completed by clients</p>
+                </div>
 
-        </a>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </article>
 
+            <!-- Completed Agreements -->
+            <article class="dashboard-card" onclick="openCompleted()">
+                <div class="card-icon completed">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
 
-        <!-- Completed -->
+                <div class="card-content">
+                    <h2>Completed</h2>
+                    <p>Converted into inspection jobs</p>
+                </div>
 
-        <a href="#" class="card">
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </article>
 
-            <div class="icon">
-                ✅
-            </div>
+            <!-- Recycle Bin -->
+            <article class="dashboard-card" onclick="openRecycle()">
+                <div class="card-icon recycle">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
 
-            <h2>Completed</h2>
+                <div class="card-content">
+                    <h2>Recycle Bin</h2>
+                    <p>Deleted agreements</p>
+                </div>
 
-            <p>
-                Converted into inspection jobs
-            </p>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </article>
 
-        </a>
+        </section> 
+                <!-- Floating Return Button -->
+        <button
+            class="return-dashboard-btn"
+            type="button"
+            onclick="returnDashboard()"
+            aria-label="Return to Dashboard">
 
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Return to Dashboard</span>
 
-        <!-- Recycle -->
+        </button>
 
-        <a href="#" class="card">
+    </main>
 
-            <div class="icon">
-                🗑️
-            </div>
-
-            <h2>Recycle Bin</h2>
-
-            <p>
-                Deleted agreements
-            </p>
-
-        </a>
-
-    </div>
-
-</main>
-
-<!-- ======================================================
-RETURN
-====================================================== -->
-
-<a href="../index.html" class="back-button">
-
-    ← Return to Dashboard
-
-</a>
-
-<script src="agreements.js"></script>
+    <!-- JavaScript -->
+    <script src="agreements.js"></script>
 
 </body>
+
 </html>
