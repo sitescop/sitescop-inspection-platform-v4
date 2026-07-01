@@ -38,7 +38,7 @@ HEADER
 
             </a>
 
-            <div class="divider"></div>
+            <div class="header-divider"></div>
 
             <h1>Sent Agreements</h1>
 
@@ -52,138 +52,59 @@ HEADER
 MAIN
 ====================================================== -->
 
-<main class="page">
+<main class="page-container">
 
-    <section class="send-card">
+    <!-- Tabs -->
 
-        <div class="card-header">
+    <div class="tabs">
+
+        <button
+            id="sendTab"
+            class="tab active">
 
             <i class="fa-solid fa-paper-plane"></i>
 
-            <h2>Send Client Agreement</h2>
-
-        </div>
-
-        <p class="intro">
-
-            Fill in the client's contact details to send an inspection agreement.
-
-        </p>
-
-        <div class="form-group">
-
-            <label>
-
-                Client Name
-
-            </label>
-
-            <input
-                type="text"
-                id="clientName"
-                placeholder="Enter client name">
-
-        </div>
-
-        <div class="form-group">
-
-            <label>
-
-                Email Address
-
-            </label>
-
-            <input
-                type="email"
-                id="clientEmail"
-                placeholder="Enter email address">
-
-        </div>
-
-        <div class="form-group">
-
-            <label>
-
-                Mobile Number
-
-            </label>
-
-            <input
-                type="tel"
-                id="clientMobile"
-                placeholder="Enter mobile number">
-
-        </div>
-
-        <div class="send-options">
-
-            <label>
-
-                <input
-                    type="radio"
-                    name="sendMethod"
-                    checked>
-
-                <span>📧 Send by Email</span>
-
-            </label>
-
-            <label>
-
-                <input
-                    type="radio"
-                    name="sendMethod">
-
-                <span>📱 Send by SMS</span>
-
-            </label>
-
-            <label>
-
-                <input
-                    type="radio"
-                    name="sendMethod">
-
-                <span>💬 Send by WhatsApp</span>
-
-            </label>
-
-            <label>
-
-                <input
-                    type="radio"
-                    name="sendMethod">
-
-                <span>🔗 Copy Agreement Link</span>
-
-            </label>
-
-        </div>
-
-        <button
-            class="send-button">
-
-            SEND AGREEMENT
+            Send Agreement
 
         </button>
+
+        <button
+            id="listTab"
+            class="tab">
+
+            <i class="fa-solid fa-list"></i>
+
+            Sent Agreements
+
+        </button>
+
+    </div>
+
+    <!-- =========================
+         SEND AGREEMENT
+    ========================== -->
+
+    <section
+        id="sendSection"
+        class="tab-content active">
+
+        <!-- Form comes in Part 2 -->
+
+    </section>
+
+    <!-- =========================
+         SENT AGREEMENTS
+    ========================== -->
+
+    <section
+        id="listSection"
+        class="tab-content">
+
+        <!-- Table comes in Part 3 -->
 
     </section>
 
 </main>
-
-<footer>
-
-    <button
-        class="return-btn"
-        onclick="history.back()">
-
-        <i class="fa-solid fa-arrow-left"></i>
-
-        Return
-
-    </button>
-
-</footer>
 
 <script src="sent.js"></script>
 
