@@ -1176,11 +1176,17 @@ class SiteScopAgreement {
 
         try {
 
-            this.state.agreement =
-                this.createAgreementObject();
+           this.state.agreement = this.createAgreementObject();
 
-           this.state.agreement.agreementId =
-    this.generateAgreementId();
+const result = await AgreementEngine.process(this.state.agreement);
+
+if (!result.success) {
+    throw new Error(result.message);
+}
+
+this.state.agreement = result.agreement;
+
+          
 
 const agreementId = document.getElementById("agreementId");
 if (agreementId) {
