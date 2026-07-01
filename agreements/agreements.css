@@ -1,7 +1,7 @@
-/*==================================================
- SiteScop V4
- Client Agreements Dashboard
-==================================================*/
+/* ======================================================
+   SiteScop V4
+   Client Agreements
+====================================================== */
 
 *{
     margin:0;
@@ -9,53 +9,41 @@
     box-sizing:border-box;
 }
 
-:root{
-
-    --primary:#0f2744;
-    --secondary:#f5a623;
-    --background:#f4f7fb;
-    --card:#ffffff;
-    --text:#1f2937;
-    --muted:#6b7280;
-    --border:#dbe4ee;
-
-}
-
 body{
 
-    font-family:Segoe UI,Arial,sans-serif;
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
 
-    background:var(--background);
+    background:#eef3f8;
 
-    color:var(--text);
-
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
+    color:#172b4d;
 
 }
 
-/*============================================*/
+/* ======================================================
+HEADER
+====================================================== */
 
 .header{
 
-    background:var(--primary);
+    background:#162845;
 
     color:#fff;
 
-    padding:28px 40px;
+    padding:35px 40px;
 
-    box-shadow:0 3px 15px rgba(0,0,0,.15);
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
 
 }
 
-.header-left h1{
+.logo{
 
-    font-size:44px;
+    display:flex;
 
-    font-weight:700;
+    align-items:center;
+
+    gap:22px;
+
+    flex-wrap:wrap;
 
 }
 
@@ -63,69 +51,47 @@ body{
 
     color:#ffffff;
 
+    font-size:44px;
+
+    font-weight:800;
+
 }
 
 .scop{
 
-    color:var(--secondary);
+    color:#f4a623;
+
+    font-size:44px;
+
+    font-weight:800;
 
 }
 
-.subtitle{
+.title{
 
-    margin-top:6px;
+    font-size:28px;
 
-    font-size:20px;
-
-    opacity:.9;
+    font-weight:700;
 
 }
 
-/*============================================*/
+/* ======================================================
+MAIN
+====================================================== */
 
-.main-container{
+.container{
 
-    flex:1;
+    max-width:900px;
 
-    width:95%;
+    margin:80px auto 120px;
 
-    max-width:1400px;
-
-    margin:auto;
-
-    padding:40px 0;
+    padding:0 20px;
 
 }
 
-/*============================================*/
-
-.page-title{
-
-    text-align:center;
-
-    margin-bottom:45px;
-
-}
-
-.page-title h2{
-
-    font-size:42px;
-
-    color:var(--primary);
-
-    margin-bottom:10px;
-
-}
-
-.page-title p{
-
-    font-size:20px;
-
-    color:var(--muted);
-
-}
-
-/*============================================*/
+/* ======================================================
+CARDS
+====================================================== */
 
 .cards{
 
@@ -133,238 +99,186 @@ body{
 
     grid-template-columns:repeat(2,1fr);
 
-    gap:30px;
+    gap:35px;
 
 }
 
-/*============================================*/
-
 .card{
 
-    background:var(--card);
+    background:#ffffff;
 
     border-radius:18px;
 
-    padding:45px 35px;
+    text-decoration:none;
+
+    color:#172b4d;
+
+    padding:40px 25px;
 
     text-align:center;
 
-    cursor:pointer;
+    transition:.25s;
 
-    border:1px solid var(--border);
+    box-shadow:0 12px 35px rgba(0,0,0,.10);
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.30s;
+    border:1px solid #e5edf6;
 
 }
 
 .card:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 
-    box-shadow:0 18px 40px rgba(0,0,0,.16);
-
-}
-
-.card:active{
-
-    transform:scale(.98);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
 
 }
-
-/*============================================*/
 
 .icon{
 
-    font-size:70px;
+    font-size:52px;
 
-    color:var(--primary);
-
-    margin-bottom:25px;
+    margin-bottom:22px;
 
 }
 
-/*============================================*/
+.card h2{
 
-.card h3{
+    font-size:22px;
 
-    font-size:30px;
-
-    margin-bottom:18px;
-
-    color:var(--primary);
+    margin-bottom:12px;
 
 }
 
 .card p{
 
-    font-size:18px;
+    font-size:17px;
 
-    color:var(--muted);
+    color:#6b7280;
 
-    line-height:1.6;
-
-}
-
-/*============================================*/
-
-.footer{
-
-    width:95%;
-
-    max-width:1400px;
-
-    margin:30px auto;
-
-    display:flex;
-
-    justify-content:flex-start;
+    line-height:1.5;
 
 }
+
+/* ======================================================
+RETURN BUTTON
+====================================================== */
 
 .back-button{
 
-    display:inline-flex;
+    position:fixed;
 
-    align-items:center;
+    left:30px;
 
-    gap:10px;
+    bottom:25px;
+
+    background:#ffffff;
+
+    color:#162845;
 
     text-decoration:none;
 
-    background:var(--primary);
-
-    color:#fff;
+    border-radius:12px;
 
     padding:14px 24px;
 
-    border-radius:12px;
-
-    transition:.25s;
-
-    font-size:17px;
+    font-size:18px;
 
     font-weight:600;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+    transition:.25s;
 
 }
 
 .back-button:hover{
 
-    background:#18375f;
+    background:#162845;
+
+    color:#ffffff;
 
 }
 
-/*============================================*/
-/* Tablet */
-/*============================================*/
+/* ======================================================
+TABLET
+====================================================== */
 
 @media(max-width:900px){
 
-.cards{
+    .container{
 
-    grid-template-columns:1fr;
+        max-width:700px;
 
-}
+        margin-top:60px;
 
-.header{
+    }
 
-    padding:24px;
+    .cards{
 
-}
+        gap:25px;
 
-.header-left h1{
-
-    font-size:36px;
+    }
 
 }
 
-.page-title h2{
+/* ======================================================
+MOBILE
+====================================================== */
 
-    font-size:34px;
+@media(max-width:700px){
 
-}
+    .header{
 
-}
+        padding:25px;
 
-/*============================================*/
-/* Mobile */
-/*============================================*/
+    }
 
-@media(max-width:600px){
+    .logo{
 
-.main-container{
+        flex-direction:column;
 
-    width:92%;
+        align-items:flex-start;
 
-}
+        gap:8px;
 
-.header{
+    }
 
-    text-align:center;
+    .site,
 
-}
+    .scop{
 
-.header-left h1{
+        font-size:34px;
 
-    font-size:30px;
+    }
 
-}
+    .title{
 
-.subtitle{
+        font-size:24px;
 
-    font-size:18px;
+    }
 
-}
+    .cards{
 
-.page-title h2{
+        grid-template-columns:1fr;
 
-    font-size:28px;
+    }
 
-}
+    .card{
 
-.page-title p{
+        padding:35px 20px;
 
-    font-size:16px;
+    }
 
-}
+    .back-button{
 
-.card{
+        left:15px;
 
-    padding:35px 22px;
+        right:15px;
 
-}
+        bottom:15px;
 
-.icon{
+        text-align:center;
 
-    font-size:56px;
-
-}
-
-.card h3{
-
-    font-size:24px;
-
-}
-
-.card p{
-
-    font-size:16px;
-
-}
-
-.footer{
-
-    justify-content:center;
-
-}
-
-.back-button{
-
-    width:100%;
-
-    justify-content:center;
-
-}
+    }
 
 }
