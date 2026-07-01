@@ -1,1 +1,222 @@
+/* ==========================================================
+   SiteScop V4
+   Client Agreements Dashboard
+========================================================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:#f4f6f9;
+
+    color:#222;
+
+}
+
+/*==========================================================*/
+
+.top-header{
+
+    background:#10233f;
+
+    color:#fff;
+
+    padding:25px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+}
+
+.site{
+
+    color:#ffffff;
+
+}
+
+.scop{
+
+    color:#f5a623;
+
+}
+
+.title{
+
+    margin-left:15px;
+
+    font-size:28px;
+
+    color:#ffffff;
+
+}
+
+/*==========================================================*/
+
+.new-btn{
+
+    background:#0b6b53;
+
+    color:#fff;
+
+    border:none;
+
+    padding:14px 28px;
+
+    font-size:18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-weight:bold;
+
+}
+
+.new-btn:hover{
+
+    background:#0e8b6d;
+
+    transform:translateY(-2px);
+
+}
+
+/*==========================================================*/
+
+.dashboard{
+
+    width:95%;
+
+    max-width:1400px;
+
+    margin:50px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+/*==========================================================*/
+
+.card{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:45px 30px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    border:1px solid #ececec;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 14px 30px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+    font-size:70px;
+
+    margin-bottom:25px;
+
+}
+
+.card h2{
+
+    font-size:30px;
+
+    margin-bottom:15px;
+
+    color:#10233f;
+
+}
+
+.card p{
+
+    font-size:18px;
+
+    color:#666;
+
+}
+
+/*==========================================================*/
+
+@media(max-width:900px){
+
+.dashboard{
+
+    grid-template-columns:1fr;
+
+}
+
+.top-header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    text-align:center;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+}
+
+.title{
+
+    display:block;
+
+    margin-top:10px;
+
+    margin-left:0;
+
+    font-size:24px;
+
+}
+
+.new-btn{
+
+    width:100%;
+
+}
+
+}
