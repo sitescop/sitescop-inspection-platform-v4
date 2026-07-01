@@ -700,3 +700,5 @@ AgreementEngine.getInspectionJob = function (jobId) {
     );
 
 }; 
+
+window.AgreementEngine = AgreementEngine;
