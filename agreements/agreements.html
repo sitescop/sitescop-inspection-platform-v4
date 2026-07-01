@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
+
 <head>
 
 <meta charset="UTF-8">
@@ -16,65 +17,88 @@
 <header class="top-header">
 
     <div class="logo">
-        <span class="site">Site</span><span class="scop">Scop</span>
-        <span class="title">Client Agreements</span>
-    </div>
 
-    <button id="newAgreementBtn" class="new-btn">
-        ➕ New Agreement
-    </button>
+        <span class="site">Site</span><span class="scop">Scop</span>
+
+        <div class="page-title">
+            Client Agreements
+        </div>
+
+    </div>
 
 </header>
 
 
-<main class="dashboard">
+<main class="agreement-dashboard">
 
-    <div class="card" id="sentCard">
-        <div class="icon">📤</div>
+    <div class="dashboard-card" id="sentCard">
+
+        <div class="card-icon">📤</div>
 
         <h2>Sent Agreements</h2>
 
-        <p>Waiting for client completion</p>
+        <p>
+            Agreements waiting for the client to complete and submit.
+        </p>
+
     </div>
 
 
-    <div class="card" id="receivedCard">
+    <div class="dashboard-card" id="receivedCard">
 
-        <div class="icon">📥</div>
+        <div class="card-icon">📥</div>
 
         <h2>Received Agreements</h2>
 
-        <p>Completed by clients</p>
+        <p>
+            Agreements submitted by clients awaiting payment or processing.
+        </p>
 
     </div>
 
 
-    <div class="card" id="completedCard">
+    <div class="dashboard-card" id="completedCard">
 
-        <div class="icon">✅</div>
+        <div class="card-icon">✅</div>
 
         <h2>Completed</h2>
 
-        <p>Converted into inspection jobs</p>
+        <p>
+            Agreements successfully converted into inspection jobs.
+        </p>
 
     </div>
 
 
-    <div class="card" id="recycleCard">
+    <div class="dashboard-card" id="recycleCard">
 
-        <div class="icon">🗑️</div>
+        <div class="card-icon">🗑️</div>
 
         <h2>Recycle Bin</h2>
 
-        <p>Deleted agreements</p>
+        <p>
+            Deleted agreements that can still be restored.
+        </p>
 
     </div>
 
 </main>
 
 
+<footer class="footer">
+
+    <button
+        id="dashboardBtn"
+        class="dashboard-button">
+
+        ← Dashboard
+
+    </button>
+
+</footer>
+
+
 <script src="agreements.js"></script>
 
 </body>
-</html> 
-
+</html>
