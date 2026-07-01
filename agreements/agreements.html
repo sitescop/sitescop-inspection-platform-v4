@@ -10,90 +10,128 @@
 
 <link rel="stylesheet" href="agreements.css">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
-<header class="top-header">
+<header class="header">
 
-    <div class="logo">
+    <div class="header-left">
 
-        <span class="site">Site</span><span class="scop">Scop</span>
+        <h1>
 
-        <div class="page-title">
+            <span class="site">Site</span><span class="scop">Scop</span>
+
+        </h1>
+
+        <p class="subtitle">
+
             Client Agreements
-        </div>
+
+        </p>
 
     </div>
 
 </header>
 
 
-<main class="agreement-dashboard">
+<main class="main-container">
 
-    <div class="dashboard-card" id="sentCard">
+    <section class="page-title">
 
-        <div class="card-icon">📤</div>
-
-        <h2>Sent Agreements</h2>
+        <h2>Client Agreements</h2>
 
         <p>
-            Agreements waiting for the client to complete and submit.
+
+            Manage and monitor all client inspection agreements.
+
         </p>
 
-    </div>
+    </section>
 
 
-    <div class="dashboard-card" id="receivedCard">
 
-        <div class="card-icon">📥</div>
+    <section class="cards">
 
-        <h2>Received Agreements</h2>
+        <div class="card" id="sentCard">
 
-        <p>
-            Agreements submitted by clients awaiting payment or processing.
-        </p>
+            <i class="fa-solid fa-paper-plane icon"></i>
 
-    </div>
+            <h3>Sent Agreements</h3>
 
+            <p>
 
-    <div class="dashboard-card" id="completedCard">
+                Agreements sent and waiting for the client to complete.
 
-        <div class="card-icon">✅</div>
+            </p>
 
-        <h2>Completed</h2>
-
-        <p>
-            Agreements successfully converted into inspection jobs.
-        </p>
-
-    </div>
+        </div>
 
 
-    <div class="dashboard-card" id="recycleCard">
 
-        <div class="card-icon">🗑️</div>
+        <div class="card" id="receivedCard">
 
-        <h2>Recycle Bin</h2>
+            <i class="fa-solid fa-inbox icon"></i>
 
-        <p>
-            Deleted agreements that can still be restored.
-        </p>
+            <h3>Received Agreements</h3>
 
-    </div>
+            <p>
+
+                Agreements completed and submitted by clients.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card" id="completedCard">
+
+            <i class="fa-solid fa-circle-check icon"></i>
+
+            <h3>Completed</h3>
+
+            <p>
+
+                Agreements converted into inspection jobs.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card" id="recycleCard">
+
+            <i class="fa-solid fa-trash-can icon"></i>
+
+            <h3>Recycle Bin</h3>
+
+            <p>
+
+                Deleted agreements available for restore.
+
+            </p>
+
+        </div>
+
+    </section>
 
 </main>
 
 
 <footer class="footer">
 
-    <button
-        id="dashboardBtn"
-        class="dashboard-button">
+    <a href="../index.html" class="back-button">
 
-        ← Dashboard
+        <i class="fa-solid fa-arrow-left"></i>
 
-    </button>
+        Dashboard
+
+    </a>
 
 </footer>
 
