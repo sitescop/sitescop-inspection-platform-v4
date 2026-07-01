@@ -3,110 +3,110 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>SiteScop V4 | Sent Agreements</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="sent.css">
+    <title>SiteScop V4 | Sent Agreements</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description"
+          content="SiteScop Client Agreement Management">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="sent.css">
 
 </head>
 
 <body>
 
-<!-- ======================================================
-HEADER
-====================================================== -->
-
 <header class="top-header">
 
     <div class="header-container">
 
-        <div class="header-left">
+        <div class="logo">
 
-            <a href="agreements.html" class="logo">
-
-                <span class="site">Site</span><span class="scop">Scop</span>
-
-            </a>
-
-            <div class="header-divider"></div>
-
-            <h1>Sent Agreements</h1>
+            <span class="site">Site</span><span class="scop">Scop</span>
 
         </div>
+
+        <h1>Sent Agreements</h1>
 
     </div>
 
 </header>
 
-<!-- ======================================================
-MAIN
-====================================================== -->
+<main class="page">
 
-<main class="page-container">
+    <div class="page-card">
 
-    <!-- Tabs -->
+        <div class="tabs">
 
-    <div class="tabs">
+            <button
+                id="tabSend"
+                class="tab active">
 
-        <button
-            id="sendTab"
-            class="tab active">
+                <i class="fa-solid fa-paper-plane"></i>
 
-            <i class="fa-solid fa-paper-plane"></i>
+                Send Agreement List
 
-            Send Agreement
+            </button>
 
-        </button>
+            <button
+                id="tabList"
+                class="tab">
 
-        <button
-            id="listTab"
-            class="tab">
+                <i class="fa-solid fa-list"></i>
 
-            <i class="fa-solid fa-list"></i>
+                Sent Agreements
 
-            Sent Agreements
+            </button>
 
-        </button>
+        </div>
+
+        <!-- ========================================================= -->
+
+        <!-- Send Agreement Tab -->
+
+        <!-- ========================================================= -->
+
+        <section
+            id="sendPanel"
+            class="tab-panel active">
+
+        </section>
+
+        <!-- ========================================================= -->
+
+        <!-- Sent Agreements Tab -->
+
+        <!-- ========================================================= -->
+
+        <section
+            id="listPanel"
+            class="tab-panel">
+
+        </section>
 
     </div>
-
-    <!-- =========================
-         SEND AGREEMENT
-    ========================== -->
-
-    <section
-        id="sendSection"
-        class="tab-content active">
-
-        <!-- Form comes in Part 2 -->
-
-    </section>
-
-    <!-- =========================
-         SENT AGREEMENTS
-    ========================== -->
-
-    <section
-        id="listSection"
-        class="tab-content">
-
-        <!-- Table comes in Part 3 -->
-
-    </section>
 
 </main>
 
 <script src="sent.js"></script>
 
 </body>
+
 </html>
