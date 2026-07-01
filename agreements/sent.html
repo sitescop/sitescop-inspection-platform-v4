@@ -79,15 +79,158 @@
 
         <!-- ========================================================= -->
 
-        <!-- Send Agreement Tab -->
+        <!-- Send Agreement list Tab -->
 
         <!-- ========================================================= -->
 
-        <section
-            id="sendPanel"
-            class="tab-panel active">
+       <section
+    id="sendPanel"
+    class="tab-panel active">
 
-        </section>
+    <div class="form-card">
+
+        <div class="form-title">
+
+            <h2>Send Agreement List</h2>
+
+            <p>
+                Fill in the client's contact details to send an inspection agreement.
+            </p>
+
+        </div>
+
+        <form id="agreementForm">
+
+            <!-- Client Name -->
+
+            <div class="form-group">
+
+                <label for="clientName">
+                    Client Name
+                </label>
+
+                <input
+                    type="text"
+                    id="clientName"
+                    placeholder="Enter client name"
+                    autocomplete="off">
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="clientEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="clientEmail"
+                    placeholder="Enter email address"
+                    autocomplete="off">
+
+            </div>
+
+            <!-- Mobile -->
+
+            <div class="form-group">
+
+                <label for="clientMobile">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="clientMobile"
+                    placeholder="Enter mobile number"
+                    autocomplete="off">
+
+            </div>
+
+            <!-- Delivery Method -->
+
+            <div class="form-group">
+
+                <label>
+
+                    Delivery Method
+
+                </label>
+
+                <div class="delivery-options">
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            value="Email"
+                            checked>
+
+                        <span>📧 Email</span>
+
+                    </label>
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            value="SMS">
+
+                        <span>📱 SMS</span>
+
+                    </label>
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            value="WhatsApp">
+
+                        <span>💬 WhatsApp</span>
+
+                    </label>
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            value="Copy Link">
+
+                        <span>🔗 Copy Agreement Link</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- Button -->
+
+            <div class="button-row">
+
+                <button
+                    type="submit"
+                    class="send-btn">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    SEND AGREEMENT
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
 
         <!-- ========================================================= -->
 
@@ -95,11 +238,93 @@
 
         <!-- ========================================================= -->
 
-        <section
-            id="listPanel"
-            class="tab-panel">
+       <section
+    id="listPanel"
+    class="tab-panel">
 
-        </section>
+    <div class="table-card">
+
+        <div class="table-header">
+
+            <h2>
+
+                <i class="fa-solid fa-list"></i>
+
+                Sent Agreements
+
+            </h2>
+
+            <p>
+
+                Agreements that have been sent and are waiting for the client to complete.
+
+            </p>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table id="sentTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Agreement</th>
+
+                        <th>Client</th>
+
+                        <th>Email</th>
+
+                        <th>Mobile</th>
+
+                        <th>Method</th>
+
+                        <th>Status</th>
+
+                        <th>Date Sent</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="sentTableBody">
+
+                    <tr class="empty-row">
+
+                        <td colspan="8">
+
+                            No agreements have been sent yet.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="return-row">
+
+        <button
+            class="return-btn"
+            onclick="window.location.href='agreements.html'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Return to Client Agreements
+
+        </button>
+
+    </div>
+
+</section>
 
     </div>
 
