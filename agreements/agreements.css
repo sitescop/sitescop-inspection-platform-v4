@@ -1,7 +1,7 @@
-/* ==========================================================
-   SiteScop V4
-   Client Agreements
-========================================================== */
+/*==================================================
+ SiteScop V4
+ Client Agreements Dashboard
+==================================================*/
 
 *{
     margin:0;
@@ -9,80 +9,161 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#eef2f7;
-    color:#1f2937;
+:root{
+
+    --primary:#0f2744;
+    --secondary:#f5a623;
+    --background:#f4f7fb;
+    --card:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --border:#dbe4ee;
+
 }
 
-/* ===========================
-   Header
-=========================== */
+body{
+
+    font-family:Segoe UI,Arial,sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/*============================================*/
 
 .header{
-    background:#142540;
+
+    background:var(--primary);
+
     color:#fff;
-    padding:30px;
+
+    padding:28px 40px;
+
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+
 }
 
-.logo{
-    font-size:48px;
+.header-left h1{
+
+    font-size:44px;
+
     font-weight:700;
+
 }
 
-.logo span{
-    color:#f39c12;
+.site{
+
+    color:#ffffff;
+
 }
 
-.title{
-    margin-top:8px;
-    font-size:42px;
-    font-weight:700;
+.scop{
+
+    color:var(--secondary);
+
 }
 
-/* ===========================
-   Main Container
-=========================== */
+.subtitle{
 
-.container{
+    margin-top:6px;
+
+    font-size:20px;
+
+    opacity:.9;
+
+}
+
+/*============================================*/
+
+.main-container{
+
+    flex:1;
+
+    width:95%;
+
     max-width:1400px;
+
     margin:auto;
-    padding:40px 25px;
+
+    padding:40px 0;
+
 }
 
-/* ===========================
-   Dashboard Grid
-=========================== */
+/*============================================*/
+
+.page-title{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.page-title h2{
+
+    font-size:42px;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.page-title p{
+
+    font-size:20px;
+
+    color:var(--muted);
+
+}
+
+/*============================================*/
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    grid-template-columns:repeat(2,1fr);
+
     gap:30px;
+
 }
 
-/* ===========================
-   Cards
-=========================== */
+/*============================================*/
 
 .card{
-    background:#fff;
+
+    background:var(--card);
+
     border-radius:18px;
-    padding:45px 30px;
+
+    padding:45px 35px;
+
     text-align:center;
+
     cursor:pointer;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.08);
+    border:1px solid var(--border);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 
     transition:.30s;
+
 }
 
 .card:hover{
 
     transform:translateY(-8px);
 
-    box-shadow:
-        0 20px 40px rgba(0,0,0,.18);
+    box-shadow:0 18px 40px rgba(0,0,0,.16);
 
 }
 
@@ -92,53 +173,49 @@ body{
 
 }
 
-/* ===========================
-   Icons
-=========================== */
+/*============================================*/
 
 .icon{
 
     font-size:70px;
 
-    margin-bottom:20px;
+    color:var(--primary);
+
+    margin-bottom:25px;
 
 }
 
-/* ===========================
-   Titles
-=========================== */
+/*============================================*/
 
-.card h2{
+.card h3{
 
-    font-size:34px;
+    font-size:30px;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 
-    color:#142540;
+    color:var(--primary);
 
 }
-
-/* ===========================
-   Description
-=========================== */
 
 .card p{
 
-    font-size:20px;
+    font-size:18px;
 
-    color:#6b7280;
+    color:var(--muted);
 
     line-height:1.6;
 
 }
 
-/* ===========================
-   Dashboard Button
-=========================== */
+/*============================================*/
 
-.dashboard{
+.footer{
 
-    margin-top:50px;
+    width:95%;
+
+    max-width:1400px;
+
+    margin:30px auto;
 
     display:flex;
 
@@ -146,102 +223,148 @@ body{
 
 }
 
-.dashboard a{
+.back-button{
 
-    display:inline-block;
+    display:inline-flex;
 
-    background:#142540;
+    align-items:center;
 
-    color:#fff;
+    gap:10px;
 
     text-decoration:none;
 
-    padding:15px 28px;
+    background:var(--primary);
+
+    color:#fff;
+
+    padding:14px 24px;
 
     border-radius:12px;
 
-    font-size:18px;
-
     transition:.25s;
 
-}
+    font-size:17px;
 
-.dashboard a:hover{
-
-    background:#1d3557;
+    font-weight:600;
 
 }
 
-/* ===========================
-   Footer
-=========================== */
+.back-button:hover{
 
-.footer{
+    background:#18375f;
 
-    margin-top:60px;
+}
+
+/*============================================*/
+/* Tablet */
+/*============================================*/
+
+@media(max-width:900px){
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.header{
+
+    padding:24px;
+
+}
+
+.header-left h1{
+
+    font-size:36px;
+
+}
+
+.page-title h2{
+
+    font-size:34px;
+
+}
+
+}
+
+/*============================================*/
+/* Mobile */
+/*============================================*/
+
+@media(max-width:600px){
+
+.main-container{
+
+    width:92%;
+
+}
+
+.header{
 
     text-align:center;
 
-    color:#888;
+}
+
+.header-left h1{
+
+    font-size:30px;
+
+}
+
+.subtitle{
+
+    font-size:18px;
+
+}
+
+.page-title h2{
+
+    font-size:28px;
+
+}
+
+.page-title p{
 
     font-size:16px;
 
 }
 
-/* ===========================
-   Mobile
-=========================== */
+.card{
 
-@media(max-width:900px){
+    padding:35px 22px;
 
-    .header{
+}
 
-        text-align:center;
+.icon{
 
-        padding:25px;
+    font-size:56px;
 
-    }
+}
 
-    .logo{
+.card h3{
 
-        font-size:38px;
+    font-size:24px;
 
-    }
+}
 
-    .title{
+.card p{
 
-        font-size:32px;
+    font-size:16px;
 
-    }
+}
 
-    .card{
+.footer{
 
-        padding:35px 20px;
+    justify-content:center;
 
-    }
+}
 
-    .icon{
+.back-button{
 
-        font-size:56px;
+    width:100%;
 
-    }
+    justify-content:center;
 
-    .card h2{
-
-        font-size:28px;
-
-    }
-
-    .card p{
-
-        font-size:18px;
-
-    }
-
-    .dashboard{
-
-        justify-content:center;
-
-    }
+}
 
 }
